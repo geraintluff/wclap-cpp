@@ -1,0 +1,562 @@
+{
+	"pointerBytes": 4,
+	"constants": {
+		"CLAP_VERSION_MAJOR": 1,
+		"CLAP_VERSION_MINOR": 2,
+		"CLAP_VERSION_REVISION": 7
+	},
+	"types": {
+		"float": {
+			"type": "scalar",
+			"size": 4,
+			"align": 4
+		},
+		"double": {
+			"type": "scalar",
+			"size": 8,
+			"align": 8
+		},
+		"int8": {
+			"type": "scalar",
+			"size": 1,
+			"align": 1
+		},
+		"uint8": {
+			"type": "scalar",
+			"size": 1,
+			"align": 1
+		},
+		"int16": {
+			"type": "scalar",
+			"size": 2,
+			"align": 2
+		},
+		"uint16": {
+			"type": "scalar",
+			"size": 2,
+			"align": 2
+		},
+		"int32": {
+			"type": "scalar",
+			"size": 4,
+			"align": 4
+		},
+		"uint32": {
+			"type": "scalar",
+			"size": 4,
+			"align": 4
+		},
+		"clap_audio_buffer": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_color": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_plugin_entry": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_event_header": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_event_note": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_event_note_expression": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_event_param_value": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_event_param_mod": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_event_param_gesture": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_event_transport": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_event_midi": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_event_midi_sysex": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_event_midi2": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_input_events": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_output_events": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_host": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_plugin_descriptor": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_plugin": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_process": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_istream": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_ostream": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_universal_plugin_id": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_version": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_plugin_factory": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_preset_discovery_metadata_receiver": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_preset_discovery_filetype": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_preset_discovery_location": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_preset_discovery_soundpack": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_preset_discovery_provider_descriptor": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_preset_discovery_provider": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_preset_discovery_indexer": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_preset_discovery_factory": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_plugin_invalidation_source": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_plugin_invalidation_factory": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_plugin_state_converter_descriptor": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_plugin_state_converter": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_plugin_state_converter_factory": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_ambisonic_config": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_plugin_ambisonic": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_host_ambisonic": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_plugin_audio_ports_activation": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_audio_ports_config": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_plugin_audio_ports_config": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_plugin_audio_ports_config_info": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_host_audio_ports_config": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_audio_port_info": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_plugin_audio_ports": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_host_audio_ports": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_audio_port_configuration_request": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_plugin_configurable_audio_ports": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_context_menu_target": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_context_menu_entry": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_context_menu_check_entry": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_context_menu_item_title": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_context_menu_submenu": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_context_menu_builder": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_plugin_context_menu": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_host_context_menu": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_host_event_registry": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_window": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_gui_resize_hints": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_plugin_gui": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_host_gui": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_plugin_latency": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_host_latency": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_host_log": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_note_name": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_plugin_note_name": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_host_note_name": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_note_port_info": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_plugin_note_ports": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_host_note_ports": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_plugin_param_indication": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_param_info": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_plugin_params": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_host_params": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_plugin_posix_fd_support": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_host_posix_fd_support": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_plugin_preset_load": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_host_preset_load": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_remote_controls_page": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_plugin_remote_controls": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_host_remote_controls": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_plugin_render": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_plugin_state_context": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_plugin_state": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_host_state": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_plugin_surround": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_host_surround": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_plugin_tail": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_host_tail": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_host_thread_check": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_plugin_thread_pool": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_host_thread_pool": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_plugin_timer_support": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_host_timer_support": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_track_info": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_plugin_track_info": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_host_track_info": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_voice_info": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_plugin_voice_info": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_host_voice_info": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_plugin_extensible_audio_ports": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_plugin_gain_adjustment_metering": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_mini_curve_display_curve_hints": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_mini_curve_display_curve_data": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_plugin_mini_curve_display": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_host_mini_curve_display": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_project_location_element": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_plugin_project_location": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_plugin_resource_directory": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_host_resource_directory": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_host_scratch_memory": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_host_transport_control": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_event_trigger": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_trigger_info": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_plugin_triggers": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_host_triggers": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_event_tuning": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_tuning_info": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_plugin_tuning": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_host_tuning": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_undo_delta_properties": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_plugin_undo_delta": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_plugin_undo_context": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_host_undo": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_plugin_webview": {
+			"type": "struct",
+			"fields": []
+		},
+		"clap_host_webview": {
+			"type": "struct",
+			"fields": []
+		}
+	}
+}
