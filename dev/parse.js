@@ -29,47 +29,25 @@ function addAlias(actual, alias) {
 }
 
 function updateStandardTypes(api) {
-	let types = api.types;
-	types.float = {
-		type: "scalar",
-		size: 4,
-		align: 4
+	api.types = {};
+	let addNumber = (name, bytes) => {
+		api.types[name] = {
+			type: "value",
+			size: bytes,
+			align: bytes
+		};
 	};
-	types.double = {
-		type: "scalar",
-		size: 8,
-		align: 8
-	};
-	types.int8 = {
-		type: "scalar",
-		size: 1,
-		align: 1
-	};
-	types.uint8 = {
-		type: "scalar",
-		size: 1,
-		align: 1
-	};
-	types.int16 = {
-		type: "scalar",
-		size: 2,
-		align: 2
-	};
-	types.uint16 = {
-		type: "scalar",
-		size: 2,
-		align: 2
-	};
-	types.int32 = {
-		type: "scalar",
-		size: 4,
-		align: 4
-	};
-	types.uint32 = {
-		type: "scalar",
-		size: 4,
-		align: 4
-	};
+	addNumber("float", 4);
+	addNumber("double", 8);
+	addNumber("bool", 1);
+	addNumber("int8", 1);
+	addNumber("uint8", 1);
+	addNumber("int16", 2);
+	addNumber("uint16", 2);
+	addNumber("int32", 4);
+	addNumber("uint32", 4);
+	addNumber("int64", 8);
+	addNumber("uint64", 8);
 }
 
 function updateJSON(path) {

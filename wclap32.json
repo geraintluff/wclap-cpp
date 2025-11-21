@@ -223,44 +223,59 @@
 	},
 	"types": {
 		"float": {
-			"type": "scalar",
+			"type": "value",
 			"size": 4,
 			"align": 4
 		},
 		"double": {
-			"type": "scalar",
+			"type": "value",
 			"size": 8,
 			"align": 8
 		},
+		"bool": {
+			"type": "value",
+			"size": 1,
+			"align": 1
+		},
 		"int8": {
-			"type": "scalar",
+			"type": "value",
 			"size": 1,
 			"align": 1
 		},
 		"uint8": {
-			"type": "scalar",
+			"type": "value",
 			"size": 1,
 			"align": 1
 		},
 		"int16": {
-			"type": "scalar",
+			"type": "value",
 			"size": 2,
 			"align": 2
 		},
 		"uint16": {
-			"type": "scalar",
+			"type": "value",
 			"size": 2,
 			"align": 2
 		},
 		"int32": {
-			"type": "scalar",
+			"type": "value",
 			"size": 4,
 			"align": 4
 		},
 		"uint32": {
-			"type": "scalar",
+			"type": "value",
 			"size": 4,
 			"align": 4
+		},
+		"int64": {
+			"type": "value",
+			"size": 8,
+			"align": 8
+		},
+		"uint64": {
+			"type": "value",
+			"size": 8,
+			"align": 8
 		},
 		"clap_audio_buffer": {
 			"type": "struct",
