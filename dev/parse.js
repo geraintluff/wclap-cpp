@@ -96,9 +96,35 @@ function addFile(api, path) {
 		api.constants[name] = parseInt(value);
 	});
 
+	// catch #define'd string constants
+	code.replaceAll(/#define\s+([a-zA-Z_][a-zA-Z0-9_]*)\s+("[^"]*")/g, (match, name, value) => {
+		api.strings[name] = JSON.parse(value);
+	});
+
+	// catch static string[] constants
+	code.replaceAll(/const\s+char\s+([a-zA-Z_][a-zA-Z0-9_]*)\[\]\s+=\s+("[^"]*")/g, (match, name, value) => {
+		api.strings[name] = JSON.parse(value);
+	});
+
 	// catch simple typedefs
 	code.replaceAll(/typedef\s+([^\{\};]+)\s+([a-zA-Z_][a-zA-Z0-9_]*);/g, (match, typeName, alias) => {
 		addAlias(typeName, alias);
+	});
+	
+	// catch enum constants
+	code.replaceAll(/enum\s+\{([^\}]+)\}/g, (match, body) => {
+		body = body.replaceAll(/\/\/[^\n]+/g, '');
+		body.replaceAll(/([a-zA-Z_][a-zA-Z0-9_]*)\s+=([^\,]+)/g, (match, name, value) => {
+			value = value.trim();
+			try {
+				// There are a few different syntaxes here, and JS is close enough to C for this to work
+				value = eval(value);
+			} catch (e) {
+				throw Error(`couldn't understand constant: ${name} = ${value}`);
+			}
+			api.constants[name] = value;
+			console.log(name, value);
+		});
 	});
 
 	// Catch typedef'd structs, which are the main API type
