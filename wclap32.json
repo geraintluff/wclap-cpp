@@ -52,11 +52,6 @@
 		"CLAP_LOG_PLUGIN_MISBEHAVING": 6,
 		"CLAP_NOTE_PORTS_RESCAN_ALL": 1,
 		"CLAP_NOTE_PORTS_RESCAN_NAMES": 2,
-		"CLAP_PARAM_INDICATION_AUTOMATION_NONE": 0,
-		"CLAP_PARAM_INDICATION_AUTOMATION_PRESENT": 1,
-		"CLAP_PARAM_INDICATION_AUTOMATION_PLAYING": 2,
-		"CLAP_PARAM_INDICATION_AUTOMATION_RECORDING": 3,
-		"CLAP_PARAM_INDICATION_AUTOMATION_OVERRIDING": 4,
 		"CLAP_PARAM_IS_STEPPED": 1,
 		"CLAP_PARAM_IS_PERIODIC": 2,
 		"CLAP_PARAM_IS_HIDDEN": 4,
@@ -81,6 +76,11 @@
 		"CLAP_PARAM_CLEAR_ALL": 1,
 		"CLAP_PARAM_CLEAR_AUTOMATIONS": 2,
 		"CLAP_PARAM_CLEAR_MODULATIONS": 4,
+		"CLAP_PARAM_INDICATION_AUTOMATION_NONE": 0,
+		"CLAP_PARAM_INDICATION_AUTOMATION_PRESENT": 1,
+		"CLAP_PARAM_INDICATION_AUTOMATION_PLAYING": 2,
+		"CLAP_PARAM_INDICATION_AUTOMATION_RECORDING": 3,
+		"CLAP_PARAM_INDICATION_AUTOMATION_OVERRIDING": 4,
 		"CLAP_POSIX_FD_READ": 1,
 		"CLAP_POSIX_FD_WRITE": 2,
 		"CLAP_POSIX_FD_ERROR": 4,
@@ -164,630 +164,9641 @@
 		"CLAP_PLUGIN_FEATURE_STEREO": "stereo",
 		"CLAP_PLUGIN_FEATURE_SURROUND": "surround",
 		"CLAP_PLUGIN_FEATURE_AMBISONIC": "ambisonic",
-		"CLAP_PLUGIN_STATE_CONVERTER_FACTORY_ID": "clap.plugin-state-converter-factory/1",
-		"CLAP_EXT_AMBISONIC": "clap.ambisonic/3",
-		"CLAP_EXT_AMBISONIC_COMPAT": "clap.ambisonic.draft/3",
-		"CLAP_PORT_AMBISONIC": "ambisonic",
-		"CLAP_EXT_AUDIO_PORTS_ACTIVATION": "clap.audio-ports-activation/2",
-		"CLAP_EXT_AUDIO_PORTS_ACTIVATION_COMPAT": "clap.audio-ports-activation/draft-2",
-		"CLAP_EXT_AUDIO_PORTS_CONFIG": "clap.audio-ports-config",
-		"CLAP_EXT_AUDIO_PORTS_CONFIG_INFO": "clap.audio-ports-config-info/1",
-		"CLAP_EXT_AUDIO_PORTS_CONFIG_INFO_COMPAT": "clap.audio-ports-config-info/draft-0",
-		"CLAP_EXT_AUDIO_PORTS": "clap.audio-ports",
-		"CLAP_PORT_MONO": "mono",
-		"CLAP_PORT_STEREO": "stereo",
-		"CLAP_EXT_CONFIGURABLE_AUDIO_PORTS": "clap.configurable-audio-ports/1",
-		"CLAP_EXT_CONFIGURABLE_AUDIO_PORTS_COMPAT": "clap.configurable-audio-ports.draft1",
-		"CLAP_EXT_CONTEXT_MENU": "clap.context-menu/1",
-		"CLAP_EXT_CONTEXT_MENU_COMPAT": "clap.context-menu.draft/0",
-		"CLAP_EXT_EVENT_REGISTRY": "clap.event-registry",
-		"CLAP_EXT_GUI": "clap.gui",
-		"CLAP_EXT_LATENCY": "clap.latency",
-		"CLAP_EXT_LOG": "clap.log",
-		"CLAP_EXT_NOTE_NAME": "clap.note-name",
-		"CLAP_EXT_NOTE_PORTS": "clap.note-ports",
-		"CLAP_EXT_PARAM_INDICATION": "clap.param-indication/4",
-		"CLAP_EXT_PARAM_INDICATION_COMPAT": "clap.param-indication.draft/4",
-		"CLAP_EXT_PARAMS": "clap.params",
-		"CLAP_EXT_POSIX_FD_SUPPORT": "clap.posix-fd-support",
-		"CLAP_EXT_PRESET_LOAD": "clap.preset-load/2",
-		"CLAP_EXT_PRESET_LOAD_COMPAT": "clap.preset-load.draft/2",
-		"CLAP_EXT_REMOTE_CONTROLS": "clap.remote-controls/2",
-		"CLAP_EXT_REMOTE_CONTROLS_COMPAT": "clap.remote-controls.draft/2",
-		"CLAP_EXT_RENDER": "clap.render",
-		"CLAP_EXT_STATE_CONTEXT": "clap.state-context/2",
-		"CLAP_EXT_STATE": "clap.state",
-		"CLAP_EXT_SURROUND": "clap.surround/4",
-		"CLAP_EXT_SURROUND_COMPAT": "clap.surround.draft/4",
-		"CLAP_PORT_SURROUND": "surround",
-		"CLAP_EXT_TAIL": "clap.tail",
-		"CLAP_EXT_THREAD_CHECK": "clap.thread-check",
-		"CLAP_EXT_THREAD_POOL": "clap.thread-pool",
-		"CLAP_EXT_TIMER_SUPPORT": "clap.timer-support",
-		"CLAP_EXT_TRACK_INFO": "clap.track-info/1",
-		"CLAP_EXT_TRACK_INFO_COMPAT": "clap.track-info.draft/1",
-		"CLAP_EXT_VOICE_INFO": "clap.voice-info",
-		"CLAP_EXT_EXTENSIBLE_AUDIO_PORTS": "clap.extensible-audio-ports/1",
-		"CLAP_EXT_GAIN_ADJUSTMENT_METERING": "clap.gain-adjustment-metering/0",
-		"CLAP_EXT_MINI_CURVE_DISPLAY": "clap.mini-curve-display/3",
-		"CLAP_EXT_PROJECT_LOCATION": "clap.project-location/2",
-		"CLAP_EXT_RESOURCE_DIRECTORY": "clap.resource-directory/1",
-		"CLAP_EXT_SCRATCH_MEMORY": "clap.scratch-memory/1",
-		"CLAP_EXT_TRANSPORT_CONTROL": "clap.transport-control/1",
-		"CLAP_EXT_TRIGGERS": "clap.triggers/1",
-		"CLAP_EXT_TUNING": "clap.tuning/2",
-		"CLAP_EXT_UNDO": "clap.undo/4",
-		"CLAP_EXT_UNDO_CONTEXT": "clap.undo_context/4",
-		"CLAP_EXT_UNDO_DELTA": "clap.undo_delta/4",
-		"CLAP_EXT_WEBVIEW": "clap.webview/3"
+		"CLAP_PLUGIN_FACTORY_ID[]": "clap.plugin-factory",
+		"CLAP_PRESET_DISCOVERY_FACTORY_ID[]": "clap.preset-discovery-factory/2",
+		"CLAP_PRESET_DISCOVERY_FACTORY_ID_COMPAT[]": "clap.preset-discovery-factory/draft-2",
+		"CLAP_EXT_AMBISONIC[]": "clap.ambisonic/3",
+		"CLAP_EXT_AMBISONIC_COMPAT[]": "clap.ambisonic.draft/3",
+		"CLAP_PORT_AMBISONIC[]": "ambisonic",
+		"CLAP_EXT_AUDIO_PORTS_ACTIVATION[]": "clap.audio-ports-activation/2",
+		"CLAP_EXT_AUDIO_PORTS_ACTIVATION_COMPAT[]": "clap.audio-ports-activation/draft-2",
+		"CLAP_EXT_AUDIO_PORTS[]": "clap.audio-ports",
+		"CLAP_PORT_MONO[]": "mono",
+		"CLAP_PORT_STEREO[]": "stereo",
+		"CLAP_EXT_AUDIO_PORTS_CONFIG[]": "clap.audio-ports-config",
+		"CLAP_EXT_AUDIO_PORTS_CONFIG_INFO[]": "clap.audio-ports-config-info/1",
+		"CLAP_EXT_AUDIO_PORTS_CONFIG_INFO_COMPAT[]": "clap.audio-ports-config-info/draft-0",
+		"CLAP_EXT_CONFIGURABLE_AUDIO_PORTS[]": "clap.configurable-audio-ports/1",
+		"CLAP_EXT_CONFIGURABLE_AUDIO_PORTS_COMPAT[]": "clap.configurable-audio-ports.draft1",
+		"CLAP_EXT_CONTEXT_MENU[]": "clap.context-menu/1",
+		"CLAP_EXT_CONTEXT_MENU_COMPAT[]": "clap.context-menu.draft/0",
+		"CLAP_EXT_EVENT_REGISTRY[]": "clap.event-registry",
+		"CLAP_EXT_GUI[]": "clap.gui",
+		"CLAP_WINDOW_API_WIN32[]": "win32",
+		"CLAP_WINDOW_API_COCOA[]": "cocoa",
+		"CLAP_WINDOW_API_X11[]": "x11",
+		"CLAP_WINDOW_API_WAYLAND[]": "wayland",
+		"CLAP_EXT_LATENCY[]": "clap.latency",
+		"CLAP_EXT_LOG[]": "clap.log",
+		"CLAP_EXT_NOTE_NAME[]": "clap.note-name",
+		"CLAP_EXT_NOTE_PORTS[]": "clap.note-ports",
+		"CLAP_EXT_PARAMS[]": "clap.params",
+		"CLAP_EXT_PARAM_INDICATION[]": "clap.param-indication/4",
+		"CLAP_EXT_PARAM_INDICATION_COMPAT[]": "clap.param-indication.draft/4",
+		"CLAP_EXT_POSIX_FD_SUPPORT[]": "clap.posix-fd-support",
+		"CLAP_EXT_PRESET_LOAD[]": "clap.preset-load/2",
+		"CLAP_EXT_PRESET_LOAD_COMPAT[]": "clap.preset-load.draft/2",
+		"CLAP_EXT_REMOTE_CONTROLS[]": "clap.remote-controls/2",
+		"CLAP_EXT_REMOTE_CONTROLS_COMPAT[]": "clap.remote-controls.draft/2",
+		"CLAP_EXT_RENDER[]": "clap.render",
+		"CLAP_EXT_STATE_CONTEXT[]": "clap.state-context/2",
+		"CLAP_EXT_STATE[]": "clap.state",
+		"CLAP_EXT_SURROUND[]": "clap.surround/4",
+		"CLAP_EXT_SURROUND_COMPAT[]": "clap.surround.draft/4",
+		"CLAP_PORT_SURROUND[]": "surround",
+		"CLAP_EXT_TAIL[]": "clap.tail",
+		"CLAP_EXT_THREAD_CHECK[]": "clap.thread-check",
+		"CLAP_EXT_THREAD_POOL[]": "clap.thread-pool",
+		"CLAP_EXT_TIMER_SUPPORT[]": "clap.timer-support",
+		"CLAP_EXT_TRACK_INFO[]": "clap.track-info/1",
+		"CLAP_EXT_TRACK_INFO_COMPAT[]": "clap.track-info.draft/1",
+		"CLAP_EXT_VOICE_INFO[]": "clap.voice-info",
+		"CLAP_PLUGIN_INVALIDATION_FACTORY_ID[]": "clap.plugin-invalidation-factory/1",
+		"CLAP_PLUGIN_STATE_CONVERTER_FACTORY_ID[]": "clap.plugin-state-converter-factory/1",
+		"CLAP_EXT_EXTENSIBLE_AUDIO_PORTS[]": "clap.extensible-audio-ports/1",
+		"CLAP_EXT_GAIN_ADJUSTMENT_METERING[]": "clap.gain-adjustment-metering/0",
+		"CLAP_EXT_MINI_CURVE_DISPLAY[]": "clap.mini-curve-display/3",
+		"CLAP_EXT_PROJECT_LOCATION[]": "clap.project-location/2",
+		"CLAP_EXT_RESOURCE_DIRECTORY[]": "clap.resource-directory/1",
+		"CLAP_EXT_SCRATCH_MEMORY[]": "clap.scratch-memory/1",
+		"CLAP_EXT_TRANSPORT_CONTROL[]": "clap.transport-control/1",
+		"CLAP_EXT_TRIGGERS[]": "clap.triggers/1",
+		"CLAP_EXT_TUNING[]": "clap.tuning/2",
+		"CLAP_EXT_UNDO[]": "clap.undo/4",
+		"CLAP_EXT_UNDO_CONTEXT[]": "clap.undo_context/4",
+		"CLAP_EXT_UNDO_DELTA[]": "clap.undo_delta/4",
+		"CLAP_EXT_WEBVIEW[]": "clap.webview/3",
+		"CLAP_WINDOW_API_WEBVIEW[]": "webview"
 	},
 	"types": {
 		"float": {
 			"type": "value",
 			"size": 4,
+			"arraySize": 4,
 			"align": 4
 		},
 		"double": {
 			"type": "value",
 			"size": 8,
+			"arraySize": 8,
 			"align": 8
 		},
 		"bool": {
 			"type": "value",
 			"size": 1,
+			"arraySize": 1,
 			"align": 1
 		},
 		"int8": {
 			"type": "value",
 			"size": 1,
+			"arraySize": 1,
 			"align": 1
 		},
 		"uint8": {
 			"type": "value",
 			"size": 1,
+			"arraySize": 1,
 			"align": 1
 		},
 		"int16": {
 			"type": "value",
 			"size": 2,
+			"arraySize": 2,
 			"align": 2
 		},
 		"uint16": {
 			"type": "value",
 			"size": 2,
+			"arraySize": 2,
 			"align": 2
 		},
 		"int32": {
 			"type": "value",
 			"size": 4,
+			"arraySize": 4,
 			"align": 4
 		},
 		"uint32": {
 			"type": "value",
 			"size": 4,
+			"arraySize": 4,
 			"align": 4
 		},
 		"int64": {
 			"type": "value",
 			"size": 8,
+			"arraySize": 8,
 			"align": 8
 		},
 		"uint64": {
 			"type": "value",
 			"size": 8,
+			"arraySize": 8,
 			"align": 8
-		},
-		"clap_audio_buffer": {
-			"type": "struct",
-			"fields": []
-		},
-		"clap_color": {
-			"type": "struct",
-			"fields": []
-		},
-		"clap_plugin_entry": {
-			"type": "struct",
-			"fields": []
-		},
-		"clap_event_header": {
-			"type": "struct",
-			"fields": []
-		},
-		"clap_event_note": {
-			"type": "struct",
-			"fields": []
-		},
-		"clap_event_note_expression": {
-			"type": "struct",
-			"fields": []
-		},
-		"clap_event_param_value": {
-			"type": "struct",
-			"fields": []
-		},
-		"clap_event_param_mod": {
-			"type": "struct",
-			"fields": []
-		},
-		"clap_event_param_gesture": {
-			"type": "struct",
-			"fields": []
-		},
-		"clap_event_transport": {
-			"type": "struct",
-			"fields": []
-		},
-		"clap_event_midi": {
-			"type": "struct",
-			"fields": []
-		},
-		"clap_event_midi_sysex": {
-			"type": "struct",
-			"fields": []
-		},
-		"clap_event_midi2": {
-			"type": "struct",
-			"fields": []
-		},
-		"clap_input_events": {
-			"type": "struct",
-			"fields": []
-		},
-		"clap_output_events": {
-			"type": "struct",
-			"fields": []
-		},
-		"clap_host": {
-			"type": "struct",
-			"fields": []
-		},
-		"clap_plugin_descriptor": {
-			"type": "struct",
-			"fields": []
-		},
-		"clap_plugin": {
-			"type": "struct",
-			"fields": []
-		},
-		"clap_process": {
-			"type": "struct",
-			"fields": []
-		},
-		"clap_istream": {
-			"type": "struct",
-			"fields": []
-		},
-		"clap_ostream": {
-			"type": "struct",
-			"fields": []
-		},
-		"clap_universal_plugin_id": {
-			"type": "struct",
-			"fields": []
 		},
 		"clap_version": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"type": "uint32",
+					"name": "major",
+					"offset": 0
+				},
+				{
+					"type": "uint32",
+					"name": "minor",
+					"offset": null
+				},
+				{
+					"type": "uint32",
+					"name": "revision",
+					"offset": null
+				}
+			],
+			"size": null,
+			"align": 1
+		},
+		"clap_plugin_entry": {
+			"type": "struct",
+			"fields": [
+				{
+					"type": "clap_version",
+					"name": "clap_version",
+					"offset": 0
+				},
+				{
+					"name": "init",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin_path",
+							"type": "*",
+							"to": {
+								"type": "int8"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": null
+				},
+				{
+					"name": "deinit",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [],
+					"size": 4,
+					"align": 4,
+					"offset": null
+				},
+				{
+					"name": "get_factory",
+					"type": "()",
+					"result": {
+						"name": "result",
+						"type": "*",
+						"to": {
+							"type": "void"
+						},
+						"toConst": true,
+						"size": 4,
+						"align": 4
+					},
+					"args": [
+						{
+							"name": "factory_id",
+							"type": "*",
+							"to": {
+								"type": "int8"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": null
+				}
+			],
+			"size": null,
+			"align": 1
+		},
+		"clap_host": {
+			"type": "struct",
+			"fields": [
+				{
+					"type": "clap_version",
+					"name": "clap_version",
+					"offset": 0
+				},
+				{
+					"name": "host_data",
+					"type": "*",
+					"to": {
+						"type": "void"
+					},
+					"toConst": false,
+					"size": 4,
+					"align": 4,
+					"offset": null
+				},
+				{
+					"name": "name",
+					"type": "*",
+					"to": {
+						"type": "int8"
+					},
+					"toConst": true,
+					"size": 4,
+					"align": 4,
+					"offset": null
+				},
+				{
+					"name": "vendor",
+					"type": "*",
+					"to": {
+						"type": "int8"
+					},
+					"toConst": true,
+					"size": 4,
+					"align": 4,
+					"offset": null
+				},
+				{
+					"name": "url",
+					"type": "*",
+					"to": {
+						"type": "int8"
+					},
+					"toConst": true,
+					"size": 4,
+					"align": 4,
+					"offset": null
+				},
+				{
+					"name": "version",
+					"type": "*",
+					"to": {
+						"type": "int8"
+					},
+					"toConst": true,
+					"size": 4,
+					"align": 4,
+					"offset": null
+				},
+				{
+					"name": "get_extension",
+					"type": "()",
+					"result": {
+						"name": "result",
+						"type": "*",
+						"to": {
+							"type": "void"
+						},
+						"toConst": true,
+						"size": 4,
+						"align": 4
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "extension_id",
+							"type": "*",
+							"to": {
+								"type": "int8"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": null
+				},
+				{
+					"name": "request_restart",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": null
+				},
+				{
+					"name": "request_process",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": null
+				},
+				{
+					"name": "request_callback",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": null
+				}
+			],
+			"size": null,
+			"align": 1
+		},
+		"clap_event_header": {
+			"type": "struct",
+			"fields": [
+				{
+					"type": "uint32",
+					"name": "size",
+					"offset": 0
+				},
+				{
+					"type": "uint32",
+					"name": "time",
+					"offset": null
+				},
+				{
+					"type": "uint16",
+					"name": "space_id",
+					"offset": null
+				},
+				{
+					"type": "uint16",
+					"name": "type",
+					"offset": null
+				},
+				{
+					"type": "uint32",
+					"name": "flags",
+					"offset": null
+				}
+			],
+			"size": null,
+			"align": 1
+		},
+		"clap_event_note": {
+			"type": "struct",
+			"fields": [
+				{
+					"type": "clap_event_header",
+					"name": "header",
+					"offset": 0
+				},
+				{
+					"type": "int32",
+					"name": "note_id",
+					"offset": null
+				},
+				{
+					"type": "int16",
+					"name": "port_index",
+					"offset": null
+				},
+				{
+					"type": "int16",
+					"name": "channel",
+					"offset": null
+				},
+				{
+					"type": "int16",
+					"name": "key",
+					"offset": null
+				},
+				{
+					"type": "double",
+					"name": "velocity",
+					"offset": null
+				}
+			],
+			"size": null,
+			"align": 1
+		},
+		"clap_event_note_expression": {
+			"type": "struct",
+			"fields": [
+				{
+					"type": "clap_event_header",
+					"name": "header",
+					"offset": 0
+				},
+				{
+					"type": "int32",
+					"name": "expression_id",
+					"offset": null
+				},
+				{
+					"type": "int32",
+					"name": "note_id",
+					"offset": null
+				},
+				{
+					"type": "int16",
+					"name": "port_index",
+					"offset": null
+				},
+				{
+					"type": "int16",
+					"name": "channel",
+					"offset": null
+				},
+				{
+					"type": "int16",
+					"name": "key",
+					"offset": null
+				},
+				{
+					"type": "double",
+					"name": "value",
+					"offset": null
+				}
+			],
+			"size": null,
+			"align": 1
+		},
+		"clap_event_param_value": {
+			"type": "struct",
+			"fields": [
+				{
+					"type": "clap_event_header",
+					"name": "header",
+					"offset": 0
+				},
+				{
+					"type": "uint32",
+					"name": "param_id",
+					"offset": null
+				},
+				{
+					"name": "cookie",
+					"type": "*",
+					"to": {
+						"type": "void"
+					},
+					"toConst": false,
+					"size": 4,
+					"align": 4,
+					"offset": null
+				},
+				{
+					"type": "int32",
+					"name": "note_id",
+					"offset": null
+				},
+				{
+					"type": "int16",
+					"name": "port_index",
+					"offset": null
+				},
+				{
+					"type": "int16",
+					"name": "channel",
+					"offset": null
+				},
+				{
+					"type": "int16",
+					"name": "key",
+					"offset": null
+				},
+				{
+					"type": "double",
+					"name": "value",
+					"offset": null
+				}
+			],
+			"size": null,
+			"align": 1
+		},
+		"clap_event_param_mod": {
+			"type": "struct",
+			"fields": [
+				{
+					"type": "clap_event_header",
+					"name": "header",
+					"offset": 0
+				},
+				{
+					"type": "uint32",
+					"name": "param_id",
+					"offset": null
+				},
+				{
+					"name": "cookie",
+					"type": "*",
+					"to": {
+						"type": "void"
+					},
+					"toConst": false,
+					"size": 4,
+					"align": 4,
+					"offset": null
+				},
+				{
+					"type": "int32",
+					"name": "note_id",
+					"offset": null
+				},
+				{
+					"type": "int16",
+					"name": "port_index",
+					"offset": null
+				},
+				{
+					"type": "int16",
+					"name": "channel",
+					"offset": null
+				},
+				{
+					"type": "int16",
+					"name": "key",
+					"offset": null
+				},
+				{
+					"type": "double",
+					"name": "amount",
+					"offset": null
+				}
+			],
+			"size": null,
+			"align": 1
+		},
+		"clap_event_param_gesture": {
+			"type": "struct",
+			"fields": [
+				{
+					"type": "clap_event_header",
+					"name": "header",
+					"offset": 0
+				},
+				{
+					"type": "uint32",
+					"name": "param_id",
+					"offset": null
+				}
+			],
+			"size": null,
+			"align": 1
+		},
+		"clap_event_transport": {
+			"type": "struct",
+			"fields": [
+				{
+					"type": "clap_event_header",
+					"name": "header",
+					"offset": 0
+				},
+				{
+					"type": "uint32",
+					"name": "flags",
+					"offset": null
+				},
+				{
+					"type": "int64",
+					"name": "song_pos_beats",
+					"offset": null
+				},
+				{
+					"type": "int64",
+					"name": "song_pos_seconds",
+					"offset": null
+				},
+				{
+					"type": "double",
+					"name": "tempo",
+					"offset": null
+				},
+				{
+					"type": "double",
+					"name": "tempo_inc",
+					"offset": null
+				},
+				{
+					"type": "int64",
+					"name": "loop_start_beats",
+					"offset": null
+				},
+				{
+					"type": "int64",
+					"name": "loop_end_beats",
+					"offset": null
+				},
+				{
+					"type": "int64",
+					"name": "loop_start_seconds",
+					"offset": null
+				},
+				{
+					"type": "int64",
+					"name": "loop_end_seconds",
+					"offset": null
+				},
+				{
+					"type": "int64",
+					"name": "bar_start",
+					"offset": null
+				},
+				{
+					"type": "int32",
+					"name": "bar_number",
+					"offset": null
+				},
+				{
+					"type": "uint16",
+					"name": "tsig_num",
+					"offset": null
+				},
+				{
+					"type": "uint16",
+					"name": "tsig_denom",
+					"offset": null
+				}
+			],
+			"size": null,
+			"align": 1
+		},
+		"clap_event_midi": {
+			"type": "struct",
+			"fields": [
+				{
+					"type": "clap_event_header",
+					"name": "header",
+					"offset": 0
+				},
+				{
+					"type": "uint16",
+					"name": "port_index",
+					"offset": null
+				},
+				{
+					"type": "[]",
+					"count": 3,
+					"name": "data",
+					"size": null,
+					"offset": null
+				}
+			],
+			"size": null,
+			"align": 1
+		},
+		"clap_event_midi_sysex": {
+			"type": "struct",
+			"fields": [
+				{
+					"type": "clap_event_header",
+					"name": "header",
+					"offset": 0
+				},
+				{
+					"type": "uint16",
+					"name": "port_index",
+					"offset": null
+				},
+				{
+					"name": "buffer",
+					"type": "*",
+					"to": {
+						"type": "uint8"
+					},
+					"toConst": true,
+					"size": 4,
+					"align": 4,
+					"offset": null
+				},
+				{
+					"type": "uint32",
+					"name": "size",
+					"offset": null
+				}
+			],
+			"size": null,
+			"align": 1
+		},
+		"clap_event_midi2": {
+			"type": "struct",
+			"fields": [
+				{
+					"type": "clap_event_header",
+					"name": "header",
+					"offset": 0
+				},
+				{
+					"type": "uint16",
+					"name": "port_index",
+					"offset": null
+				},
+				{
+					"type": "[]",
+					"count": 4,
+					"name": "data",
+					"size": null,
+					"offset": null
+				}
+			],
+			"size": null,
+			"align": 1
+		},
+		"clap_input_events": {
+			"type": "struct",
+			"fields": [
+				{
+					"name": "ctx",
+					"type": "*",
+					"to": {
+						"type": "void"
+					},
+					"toConst": false,
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"name": "size",
+					"type": "()",
+					"result": {
+						"type": "uint32",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "list",
+							"type": "*",
+							"to": {
+								"type": "clap_input_events"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 4
+				},
+				{
+					"name": "get",
+					"type": "()",
+					"result": {
+						"name": "result",
+						"type": "*",
+						"to": {
+							"type": "clap_event_header"
+						},
+						"toConst": true,
+						"size": 4,
+						"align": 4
+					},
+					"args": [
+						{
+							"name": "list",
+							"type": "*",
+							"to": {
+								"type": "clap_input_events"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "index"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 8
+				}
+			],
+			"size": 12,
+			"align": 1
+		},
+		"clap_output_events": {
+			"type": "struct",
+			"fields": [
+				{
+					"name": "ctx",
+					"type": "*",
+					"to": {
+						"type": "void"
+					},
+					"toConst": false,
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"name": "try_push",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "list",
+							"type": "*",
+							"to": {
+								"type": "clap_output_events"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "event",
+							"type": "*",
+							"to": {
+								"type": "clap_event_header"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 4
+				}
+			],
+			"size": 8,
+			"align": 1
+		},
+		"clap_audio_buffer": {
+			"type": "struct",
+			"fields": [
+				{
+					"name": "data32",
+					"type": "*",
+					"to": {
+						"type": "*",
+						"to": {
+							"type": "float"
+						},
+						"toConst": false,
+						"size": 4,
+						"align": 4
+					},
+					"toConst": false,
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"name": "data64",
+					"type": "*",
+					"to": {
+						"type": "*",
+						"to": {
+							"type": "double"
+						},
+						"toConst": false,
+						"size": 4,
+						"align": 4
+					},
+					"toConst": false,
+					"size": 4,
+					"align": 4,
+					"offset": 4
+				},
+				{
+					"type": "uint32",
+					"name": "channel_count",
+					"offset": 8
+				},
+				{
+					"type": "uint32",
+					"name": "latency",
+					"offset": null
+				},
+				{
+					"type": "uint64",
+					"name": "constant_mask",
+					"offset": null
+				}
+			],
+			"size": null,
+			"align": 1
+		},
+		"clap_process": {
+			"type": "struct",
+			"fields": [
+				{
+					"type": "int64",
+					"name": "steady_time",
+					"offset": 0
+				},
+				{
+					"type": "uint32",
+					"name": "frames_count",
+					"offset": null
+				},
+				{
+					"name": "transport",
+					"type": "*",
+					"to": {
+						"type": "clap_event_transport"
+					},
+					"toConst": true,
+					"size": 4,
+					"align": 4,
+					"offset": null
+				},
+				{
+					"name": "audio_inputs",
+					"type": "*",
+					"to": {
+						"type": "clap_audio_buffer"
+					},
+					"toConst": true,
+					"size": 4,
+					"align": 4,
+					"offset": null
+				},
+				{
+					"name": "audio_outputs",
+					"type": "*",
+					"to": {
+						"type": "clap_audio_buffer"
+					},
+					"toConst": false,
+					"size": 4,
+					"align": 4,
+					"offset": null
+				},
+				{
+					"type": "uint32",
+					"name": "audio_inputs_count",
+					"offset": null
+				},
+				{
+					"type": "uint32",
+					"name": "audio_outputs_count",
+					"offset": null
+				},
+				{
+					"name": "in_events",
+					"type": "*",
+					"to": {
+						"type": "clap_input_events"
+					},
+					"toConst": true,
+					"size": 4,
+					"align": 4,
+					"offset": null
+				},
+				{
+					"name": "out_events",
+					"type": "*",
+					"to": {
+						"type": "clap_output_events"
+					},
+					"toConst": true,
+					"size": 4,
+					"align": 4,
+					"offset": null
+				}
+			],
+			"size": null,
+			"align": 1
+		},
+		"clap_plugin_descriptor": {
+			"type": "struct",
+			"fields": [
+				{
+					"type": "clap_version",
+					"name": "clap_version",
+					"offset": 0
+				},
+				{
+					"name": "id",
+					"type": "*",
+					"to": {
+						"type": "int8"
+					},
+					"toConst": true,
+					"size": 4,
+					"align": 4,
+					"offset": null
+				},
+				{
+					"name": "name",
+					"type": "*",
+					"to": {
+						"type": "int8"
+					},
+					"toConst": true,
+					"size": 4,
+					"align": 4,
+					"offset": null
+				},
+				{
+					"name": "vendor",
+					"type": "*",
+					"to": {
+						"type": "int8"
+					},
+					"toConst": true,
+					"size": 4,
+					"align": 4,
+					"offset": null
+				},
+				{
+					"name": "url",
+					"type": "*",
+					"to": {
+						"type": "int8"
+					},
+					"toConst": true,
+					"size": 4,
+					"align": 4,
+					"offset": null
+				},
+				{
+					"name": "manual_url",
+					"type": "*",
+					"to": {
+						"type": "int8"
+					},
+					"toConst": true,
+					"size": 4,
+					"align": 4,
+					"offset": null
+				},
+				{
+					"name": "support_url",
+					"type": "*",
+					"to": {
+						"type": "int8"
+					},
+					"toConst": true,
+					"size": 4,
+					"align": 4,
+					"offset": null
+				},
+				{
+					"name": "version",
+					"type": "*",
+					"to": {
+						"type": "int8"
+					},
+					"toConst": true,
+					"size": 4,
+					"align": 4,
+					"offset": null
+				},
+				{
+					"name": "description",
+					"type": "*",
+					"to": {
+						"type": "int8"
+					},
+					"toConst": true,
+					"size": 4,
+					"align": 4,
+					"offset": null
+				},
+				{
+					"name": "features",
+					"type": "*",
+					"to": {
+						"type": "*",
+						"to": {
+							"type": "int8"
+						},
+						"toConst": true,
+						"size": 4,
+						"align": 4
+					},
+					"toConst": true,
+					"size": 4,
+					"align": 4,
+					"offset": null
+				}
+			],
+			"size": null,
+			"align": 1
+		},
+		"clap_plugin": {
+			"type": "struct",
+			"fields": [
+				{
+					"name": "desc",
+					"type": "*",
+					"to": {
+						"type": "clap_plugin_descriptor"
+					},
+					"toConst": true,
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"name": "plugin_data",
+					"type": "*",
+					"to": {
+						"type": "void"
+					},
+					"toConst": false,
+					"size": 4,
+					"align": 4,
+					"offset": 4
+				},
+				{
+					"name": "init",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 8
+				},
+				{
+					"name": "destroy",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 12
+				},
+				{
+					"name": "activate",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "double",
+							"name": "sample_rate"
+						},
+						{
+							"type": "uint32",
+							"name": "min_frames_count"
+						},
+						{
+							"type": "uint32",
+							"name": "max_frames_count"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 16
+				},
+				{
+					"name": "deactivate",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 20
+				},
+				{
+					"name": "start_processing",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 24
+				},
+				{
+					"name": "stop_processing",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 28
+				},
+				{
+					"name": "reset",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 32
+				},
+				{
+					"name": "process",
+					"type": "()",
+					"result": {
+						"type": "int32",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "process",
+							"type": "*",
+							"to": {
+								"type": "clap_process"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 36
+				},
+				{
+					"name": "get_extension",
+					"type": "()",
+					"result": {
+						"name": "result",
+						"type": "*",
+						"to": {
+							"type": "void"
+						},
+						"toConst": true,
+						"size": 4,
+						"align": 4
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "id",
+							"type": "*",
+							"to": {
+								"type": "int8"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 40
+				},
+				{
+					"name": "on_main_thread",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 44
+				}
+			],
+			"size": 48,
+			"align": 1
 		},
 		"clap_plugin_factory": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "get_plugin_count",
+					"type": "()",
+					"result": {
+						"type": "uint32",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "factory",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin_factory"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"name": "get_plugin_descriptor",
+					"type": "()",
+					"result": {
+						"name": "result",
+						"type": "*",
+						"to": {
+							"type": "clap_plugin_descriptor"
+						},
+						"toConst": true,
+						"size": 4,
+						"align": 4
+					},
+					"args": [
+						{
+							"name": "factory",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin_factory"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "index"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 4
+				},
+				{
+					"name": "create_plugin",
+					"type": "()",
+					"result": {
+						"name": "result",
+						"type": "*",
+						"to": {
+							"type": "clap_plugin"
+						},
+						"toConst": true,
+						"size": 4,
+						"align": 4
+					},
+					"args": [
+						{
+							"name": "factory",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin_factory"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "plugin_id",
+							"type": "*",
+							"to": {
+								"type": "int8"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 8
+				}
+			],
+			"size": 12,
+			"align": 1
+		},
+		"clap_universal_plugin_id": {
+			"type": "struct",
+			"fields": [
+				{
+					"name": "abi",
+					"type": "*",
+					"to": {
+						"type": "int8"
+					},
+					"toConst": true,
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"name": "id",
+					"type": "*",
+					"to": {
+						"type": "int8"
+					},
+					"toConst": true,
+					"size": 4,
+					"align": 4,
+					"offset": 4
+				}
+			],
+			"size": 8,
+			"align": 1
 		},
 		"clap_preset_discovery_metadata_receiver": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "receiver_data",
+					"type": "*",
+					"to": {
+						"type": "void"
+					},
+					"toConst": false,
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"name": "on_error",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "receiver",
+							"type": "*",
+							"to": {
+								"type": "clap_preset_discovery_metadata_receiver"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "int32",
+							"name": "os_error"
+						},
+						{
+							"name": "error_message",
+							"type": "*",
+							"to": {
+								"type": "int8"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 4
+				},
+				{
+					"name": "begin_preset",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "receiver",
+							"type": "*",
+							"to": {
+								"type": "clap_preset_discovery_metadata_receiver"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "name",
+							"type": "*",
+							"to": {
+								"type": "int8"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "load_key",
+							"type": "*",
+							"to": {
+								"type": "int8"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 8
+				},
+				{
+					"name": "add_plugin_id",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "receiver",
+							"type": "*",
+							"to": {
+								"type": "clap_preset_discovery_metadata_receiver"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "plugin_id",
+							"type": "*",
+							"to": {
+								"type": "clap_universal_plugin_id"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 12
+				},
+				{
+					"name": "set_soundpack_id",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "receiver",
+							"type": "*",
+							"to": {
+								"type": "clap_preset_discovery_metadata_receiver"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "soundpack_id",
+							"type": "*",
+							"to": {
+								"type": "int8"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 16
+				},
+				{
+					"name": "set_flags",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "receiver",
+							"type": "*",
+							"to": {
+								"type": "clap_preset_discovery_metadata_receiver"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "flags"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 20
+				},
+				{
+					"name": "add_creator",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "receiver",
+							"type": "*",
+							"to": {
+								"type": "clap_preset_discovery_metadata_receiver"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "creator",
+							"type": "*",
+							"to": {
+								"type": "int8"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 24
+				},
+				{
+					"name": "set_description",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "receiver",
+							"type": "*",
+							"to": {
+								"type": "clap_preset_discovery_metadata_receiver"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "description",
+							"type": "*",
+							"to": {
+								"type": "int8"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 28
+				},
+				{
+					"name": "set_timestamps",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "receiver",
+							"type": "*",
+							"to": {
+								"type": "clap_preset_discovery_metadata_receiver"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint64",
+							"name": "creation_time"
+						},
+						{
+							"type": "uint64",
+							"name": "modification_time"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 32
+				},
+				{
+					"name": "add_feature",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "receiver",
+							"type": "*",
+							"to": {
+								"type": "clap_preset_discovery_metadata_receiver"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "feature",
+							"type": "*",
+							"to": {
+								"type": "int8"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 36
+				},
+				{
+					"name": "add_extra_info",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "receiver",
+							"type": "*",
+							"to": {
+								"type": "clap_preset_discovery_metadata_receiver"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "key",
+							"type": "*",
+							"to": {
+								"type": "int8"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "value",
+							"type": "*",
+							"to": {
+								"type": "int8"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 40
+				}
+			],
+			"size": 44,
+			"align": 1
 		},
 		"clap_preset_discovery_filetype": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "name",
+					"type": "*",
+					"to": {
+						"type": "int8"
+					},
+					"toConst": true,
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"name": "description",
+					"type": "*",
+					"to": {
+						"type": "int8"
+					},
+					"toConst": true,
+					"size": 4,
+					"align": 4,
+					"offset": 4
+				},
+				{
+					"name": "file_extension",
+					"type": "*",
+					"to": {
+						"type": "int8"
+					},
+					"toConst": true,
+					"size": 4,
+					"align": 4,
+					"offset": 8
+				}
+			],
+			"size": 12,
+			"align": 1
 		},
 		"clap_preset_discovery_location": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"type": "uint32",
+					"name": "flags",
+					"offset": 0
+				},
+				{
+					"name": "name",
+					"type": "*",
+					"to": {
+						"type": "int8"
+					},
+					"toConst": true,
+					"size": 4,
+					"align": 4,
+					"offset": null
+				},
+				{
+					"type": "uint32",
+					"name": "kind",
+					"offset": null
+				},
+				{
+					"name": "location",
+					"type": "*",
+					"to": {
+						"type": "int8"
+					},
+					"toConst": true,
+					"size": 4,
+					"align": 4,
+					"offset": null
+				}
+			],
+			"size": null,
+			"align": 1
 		},
 		"clap_preset_discovery_soundpack": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"type": "uint32",
+					"name": "flags",
+					"offset": 0
+				},
+				{
+					"name": "id",
+					"type": "*",
+					"to": {
+						"type": "int8"
+					},
+					"toConst": true,
+					"size": 4,
+					"align": 4,
+					"offset": null
+				},
+				{
+					"name": "name",
+					"type": "*",
+					"to": {
+						"type": "int8"
+					},
+					"toConst": true,
+					"size": 4,
+					"align": 4,
+					"offset": null
+				},
+				{
+					"name": "description",
+					"type": "*",
+					"to": {
+						"type": "int8"
+					},
+					"toConst": true,
+					"size": 4,
+					"align": 4,
+					"offset": null
+				},
+				{
+					"name": "homepage_url",
+					"type": "*",
+					"to": {
+						"type": "int8"
+					},
+					"toConst": true,
+					"size": 4,
+					"align": 4,
+					"offset": null
+				},
+				{
+					"name": "vendor",
+					"type": "*",
+					"to": {
+						"type": "int8"
+					},
+					"toConst": true,
+					"size": 4,
+					"align": 4,
+					"offset": null
+				},
+				{
+					"name": "image_path",
+					"type": "*",
+					"to": {
+						"type": "int8"
+					},
+					"toConst": true,
+					"size": 4,
+					"align": 4,
+					"offset": null
+				},
+				{
+					"type": "uint64",
+					"name": "release_timestamp",
+					"offset": null
+				}
+			],
+			"size": null,
+			"align": 1
 		},
 		"clap_preset_discovery_provider_descriptor": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"type": "clap_version",
+					"name": "clap_version",
+					"offset": 0
+				},
+				{
+					"name": "id",
+					"type": "*",
+					"to": {
+						"type": "int8"
+					},
+					"toConst": true,
+					"size": 4,
+					"align": 4,
+					"offset": null
+				},
+				{
+					"name": "name",
+					"type": "*",
+					"to": {
+						"type": "int8"
+					},
+					"toConst": true,
+					"size": 4,
+					"align": 4,
+					"offset": null
+				},
+				{
+					"name": "vendor",
+					"type": "*",
+					"to": {
+						"type": "int8"
+					},
+					"toConst": true,
+					"size": 4,
+					"align": 4,
+					"offset": null
+				}
+			],
+			"size": null,
+			"align": 1
 		},
 		"clap_preset_discovery_provider": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "desc",
+					"type": "*",
+					"to": {
+						"type": "clap_preset_discovery_provider_descriptor"
+					},
+					"toConst": true,
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"name": "provider_data",
+					"type": "*",
+					"to": {
+						"type": "void"
+					},
+					"toConst": false,
+					"size": 4,
+					"align": 4,
+					"offset": 4
+				},
+				{
+					"name": "init",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "provider",
+							"type": "*",
+							"to": {
+								"type": "clap_preset_discovery_provider"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 8
+				},
+				{
+					"name": "destroy",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "provider",
+							"type": "*",
+							"to": {
+								"type": "clap_preset_discovery_provider"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 12
+				},
+				{
+					"name": "get_metadata",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "provider",
+							"type": "*",
+							"to": {
+								"type": "clap_preset_discovery_provider"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "location_kind"
+						},
+						{
+							"name": "location",
+							"type": "*",
+							"to": {
+								"type": "int8"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "metadata_receiver",
+							"type": "*",
+							"to": {
+								"type": "clap_preset_discovery_metadata_receiver"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 16
+				},
+				{
+					"name": "get_extension",
+					"type": "()",
+					"result": {
+						"name": "result",
+						"type": "*",
+						"to": {
+							"type": "void"
+						},
+						"toConst": true,
+						"size": 4,
+						"align": 4
+					},
+					"args": [
+						{
+							"name": "provider",
+							"type": "*",
+							"to": {
+								"type": "clap_preset_discovery_provider"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "extension_id",
+							"type": "*",
+							"to": {
+								"type": "int8"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 20
+				}
+			],
+			"size": 24,
+			"align": 1
 		},
 		"clap_preset_discovery_indexer": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"type": "clap_version",
+					"name": "clap_version",
+					"offset": 0
+				},
+				{
+					"name": "name",
+					"type": "*",
+					"to": {
+						"type": "int8"
+					},
+					"toConst": true,
+					"size": 4,
+					"align": 4,
+					"offset": null
+				},
+				{
+					"name": "vendor",
+					"type": "*",
+					"to": {
+						"type": "int8"
+					},
+					"toConst": true,
+					"size": 4,
+					"align": 4,
+					"offset": null
+				},
+				{
+					"name": "url",
+					"type": "*",
+					"to": {
+						"type": "int8"
+					},
+					"toConst": true,
+					"size": 4,
+					"align": 4,
+					"offset": null
+				},
+				{
+					"name": "version",
+					"type": "*",
+					"to": {
+						"type": "int8"
+					},
+					"toConst": true,
+					"size": 4,
+					"align": 4,
+					"offset": null
+				},
+				{
+					"name": "indexer_data",
+					"type": "*",
+					"to": {
+						"type": "void"
+					},
+					"toConst": false,
+					"size": 4,
+					"align": 4,
+					"offset": null
+				},
+				{
+					"name": "declare_filetype",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "indexer",
+							"type": "*",
+							"to": {
+								"type": "clap_preset_discovery_indexer"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "filetype",
+							"type": "*",
+							"to": {
+								"type": "clap_preset_discovery_filetype"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": null
+				},
+				{
+					"name": "declare_location",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "indexer",
+							"type": "*",
+							"to": {
+								"type": "clap_preset_discovery_indexer"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "location",
+							"type": "*",
+							"to": {
+								"type": "clap_preset_discovery_location"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": null
+				},
+				{
+					"name": "declare_soundpack",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "indexer",
+							"type": "*",
+							"to": {
+								"type": "clap_preset_discovery_indexer"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "soundpack",
+							"type": "*",
+							"to": {
+								"type": "clap_preset_discovery_soundpack"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": null
+				},
+				{
+					"name": "get_extension",
+					"type": "()",
+					"result": {
+						"name": "result",
+						"type": "*",
+						"to": {
+							"type": "void"
+						},
+						"toConst": true,
+						"size": 4,
+						"align": 4
+					},
+					"args": [
+						{
+							"name": "indexer",
+							"type": "*",
+							"to": {
+								"type": "clap_preset_discovery_indexer"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "extension_id",
+							"type": "*",
+							"to": {
+								"type": "int8"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": null
+				}
+			],
+			"size": null,
+			"align": 1
 		},
 		"clap_preset_discovery_factory": {
 			"type": "struct",
-			"fields": []
-		},
-		"clap_plugin_invalidation_source": {
-			"type": "struct",
-			"fields": []
-		},
-		"clap_plugin_invalidation_factory": {
-			"type": "struct",
-			"fields": []
-		},
-		"clap_plugin_state_converter_descriptor": {
-			"type": "struct",
-			"fields": []
-		},
-		"clap_plugin_state_converter": {
-			"type": "struct",
-			"fields": []
-		},
-		"clap_plugin_state_converter_factory": {
-			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "count",
+					"type": "()",
+					"result": {
+						"type": "uint32",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "factory",
+							"type": "*",
+							"to": {
+								"type": "clap_preset_discovery_factory"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"name": "get_descriptor",
+					"type": "()",
+					"result": {
+						"name": "result",
+						"type": "*",
+						"to": {
+							"type": "clap_preset_discovery_provider_descriptor"
+						},
+						"toConst": true,
+						"size": 4,
+						"align": 4
+					},
+					"args": [
+						{
+							"name": "factory",
+							"type": "*",
+							"to": {
+								"type": "clap_preset_discovery_factory"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "index"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 4
+				},
+				{
+					"name": "create",
+					"type": "()",
+					"result": {
+						"name": "result",
+						"type": "*",
+						"to": {
+							"type": "clap_preset_discovery_provider"
+						},
+						"toConst": true,
+						"size": 4,
+						"align": 4
+					},
+					"args": [
+						{
+							"name": "factory",
+							"type": "*",
+							"to": {
+								"type": "clap_preset_discovery_factory"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "indexer",
+							"type": "*",
+							"to": {
+								"type": "clap_preset_discovery_indexer"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "provider_id",
+							"type": "*",
+							"to": {
+								"type": "int8"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 8
+				}
+			],
+			"size": 12,
+			"align": 1
 		},
 		"clap_ambisonic_config": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"type": "uint32",
+					"name": "ordering",
+					"offset": 0
+				},
+				{
+					"type": "uint32",
+					"name": "normalization",
+					"offset": null
+				}
+			],
+			"size": null,
+			"align": 1
 		},
 		"clap_plugin_ambisonic": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "is_config_supported",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "config",
+							"type": "*",
+							"to": {
+								"type": "clap_ambisonic_config"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"name": "get_config",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "bool",
+							"name": "is_input"
+						},
+						{
+							"type": "uint32",
+							"name": "port_index"
+						},
+						{
+							"name": "config",
+							"type": "*",
+							"to": {
+								"type": "clap_ambisonic_config"
+							},
+							"toConst": false,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 4
+				}
+			],
+			"size": 8,
+			"align": 1
 		},
 		"clap_host_ambisonic": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "changed",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				}
+			],
+			"size": 4,
+			"align": 1
 		},
 		"clap_plugin_audio_ports_activation": {
 			"type": "struct",
-			"fields": []
-		},
-		"clap_audio_ports_config": {
-			"type": "struct",
-			"fields": []
-		},
-		"clap_plugin_audio_ports_config": {
-			"type": "struct",
-			"fields": []
-		},
-		"clap_plugin_audio_ports_config_info": {
-			"type": "struct",
-			"fields": []
-		},
-		"clap_host_audio_ports_config": {
-			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "can_activate_while_processing",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"name": "set_active",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "bool",
+							"name": "is_input"
+						},
+						{
+							"type": "uint32",
+							"name": "port_index"
+						},
+						{
+							"type": "bool",
+							"name": "is_active"
+						},
+						{
+							"type": "uint32",
+							"name": "sample_size"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 4
+				}
+			],
+			"size": 8,
+			"align": 1
 		},
 		"clap_audio_port_info": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"type": "uint32",
+					"name": "id",
+					"offset": 0
+				},
+				{
+					"type": "[]",
+					"count": 256,
+					"name": "name",
+					"size": null,
+					"offset": null
+				},
+				{
+					"type": "uint32",
+					"name": "flags",
+					"offset": null
+				},
+				{
+					"type": "uint32",
+					"name": "channel_count",
+					"offset": null
+				},
+				{
+					"name": "port_type",
+					"type": "*",
+					"to": {
+						"type": "int8"
+					},
+					"toConst": true,
+					"size": 4,
+					"align": 4,
+					"offset": null
+				},
+				{
+					"type": "uint32",
+					"name": "in_place_pair",
+					"offset": null
+				}
+			],
+			"size": null,
+			"align": 1
 		},
 		"clap_plugin_audio_ports": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "count",
+					"type": "()",
+					"result": {
+						"type": "uint32",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "bool",
+							"name": "is_input"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"name": "get",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "index"
+						},
+						{
+							"type": "bool",
+							"name": "is_input"
+						},
+						{
+							"name": "info",
+							"type": "*",
+							"to": {
+								"type": "clap_audio_port_info"
+							},
+							"toConst": false,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 4
+				}
+			],
+			"size": 8,
+			"align": 1
 		},
 		"clap_host_audio_ports": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "is_rescan_flag_supported",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "flag"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"name": "rescan",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "flags"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 4
+				}
+			],
+			"size": 8,
+			"align": 1
+		},
+		"clap_audio_ports_config": {
+			"type": "struct",
+			"fields": [
+				{
+					"type": "uint32",
+					"name": "id",
+					"offset": 0
+				},
+				{
+					"type": "[]",
+					"count": 256,
+					"name": "name",
+					"size": null,
+					"offset": null
+				},
+				{
+					"type": "uint32",
+					"name": "input_port_count",
+					"offset": null
+				},
+				{
+					"type": "uint32",
+					"name": "output_port_count",
+					"offset": null
+				},
+				{
+					"type": "bool",
+					"name": "has_main_input",
+					"offset": null
+				},
+				{
+					"type": "uint32",
+					"name": "main_input_channel_count",
+					"offset": null
+				},
+				{
+					"name": "main_input_port_type",
+					"type": "*",
+					"to": {
+						"type": "int8"
+					},
+					"toConst": true,
+					"size": 4,
+					"align": 4,
+					"offset": null
+				},
+				{
+					"type": "bool",
+					"name": "has_main_output",
+					"offset": null
+				},
+				{
+					"type": "uint32",
+					"name": "main_output_channel_count",
+					"offset": null
+				},
+				{
+					"name": "main_output_port_type",
+					"type": "*",
+					"to": {
+						"type": "int8"
+					},
+					"toConst": true,
+					"size": 4,
+					"align": 4,
+					"offset": null
+				}
+			],
+			"size": null,
+			"align": 1
+		},
+		"clap_plugin_audio_ports_config": {
+			"type": "struct",
+			"fields": [
+				{
+					"name": "count",
+					"type": "()",
+					"result": {
+						"type": "uint32",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"name": "get",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "index"
+						},
+						{
+							"name": "config",
+							"type": "*",
+							"to": {
+								"type": "clap_audio_ports_config"
+							},
+							"toConst": false,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 4
+				},
+				{
+					"name": "select",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "config_id"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 8
+				}
+			],
+			"size": 12,
+			"align": 1
+		},
+		"clap_plugin_audio_ports_config_info": {
+			"type": "struct",
+			"fields": [
+				{
+					"name": "current_config",
+					"type": "()",
+					"result": {
+						"type": "uint32",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"name": "get",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "config_id"
+						},
+						{
+							"type": "uint32",
+							"name": "port_index"
+						},
+						{
+							"type": "bool",
+							"name": "is_input"
+						},
+						{
+							"name": "info",
+							"type": "*",
+							"to": {
+								"type": "clap_audio_port_info"
+							},
+							"toConst": false,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 4
+				}
+			],
+			"size": 8,
+			"align": 1
+		},
+		"clap_host_audio_ports_config": {
+			"type": "struct",
+			"fields": [
+				{
+					"name": "rescan",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				}
+			],
+			"size": 4,
+			"align": 1
 		},
 		"clap_audio_port_configuration_request": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"type": "bool",
+					"name": "is_input",
+					"offset": 0
+				},
+				{
+					"type": "uint32",
+					"name": "port_index",
+					"offset": null
+				},
+				{
+					"type": "uint32",
+					"name": "channel_count",
+					"offset": null
+				},
+				{
+					"name": "port_type",
+					"type": "*",
+					"to": {
+						"type": "int8"
+					},
+					"toConst": true,
+					"size": 4,
+					"align": 4,
+					"offset": null
+				},
+				{
+					"name": "port_details",
+					"type": "*",
+					"to": {
+						"type": "void"
+					},
+					"toConst": true,
+					"size": 4,
+					"align": 4,
+					"offset": null
+				}
+			],
+			"size": null,
+			"align": 1
 		},
 		"clap_plugin_configurable_audio_ports": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "can_apply_configuration",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "requests",
+							"type": "*",
+							"to": {
+								"type": "clap_audio_port_configuration_request"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "request_count"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"name": "apply_configuration",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "requests",
+							"type": "*",
+							"to": {
+								"type": "clap_audio_port_configuration_request"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "request_count"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 4
+				}
+			],
+			"size": 8,
+			"align": 1
 		},
 		"clap_context_menu_target": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"type": "uint32",
+					"name": "kind",
+					"offset": 0
+				},
+				{
+					"type": "uint32",
+					"name": "id",
+					"offset": null
+				}
+			],
+			"size": null,
+			"align": 1
 		},
 		"clap_context_menu_entry": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "label",
+					"type": "*",
+					"to": {
+						"type": "int8"
+					},
+					"toConst": true,
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"type": "bool",
+					"name": "is_enabled",
+					"offset": 4
+				},
+				{
+					"type": "uint32",
+					"name": "action_id",
+					"offset": null
+				}
+			],
+			"size": null,
+			"align": 1
 		},
 		"clap_context_menu_check_entry": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "label",
+					"type": "*",
+					"to": {
+						"type": "int8"
+					},
+					"toConst": true,
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"type": "bool",
+					"name": "is_enabled",
+					"offset": 4
+				},
+				{
+					"type": "bool",
+					"name": "is_checked",
+					"offset": null
+				},
+				{
+					"type": "uint32",
+					"name": "action_id",
+					"offset": null
+				}
+			],
+			"size": null,
+			"align": 1
 		},
 		"clap_context_menu_item_title": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "title",
+					"type": "*",
+					"to": {
+						"type": "int8"
+					},
+					"toConst": true,
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"type": "bool",
+					"name": "is_enabled",
+					"offset": 4
+				}
+			],
+			"size": null,
+			"align": 1
 		},
 		"clap_context_menu_submenu": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "label",
+					"type": "*",
+					"to": {
+						"type": "int8"
+					},
+					"toConst": true,
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"type": "bool",
+					"name": "is_enabled",
+					"offset": 4
+				}
+			],
+			"size": null,
+			"align": 1
 		},
 		"clap_context_menu_builder": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "ctx",
+					"type": "*",
+					"to": {
+						"type": "void"
+					},
+					"toConst": false,
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"name": "add_item",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "builder",
+							"type": "*",
+							"to": {
+								"type": "clap_context_menu_builder"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "item_kind"
+						},
+						{
+							"name": "item_data",
+							"type": "*",
+							"to": {
+								"type": "void"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 4
+				},
+				{
+					"name": "supports",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "builder",
+							"type": "*",
+							"to": {
+								"type": "clap_context_menu_builder"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "item_kind"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 8
+				}
+			],
+			"size": 12,
+			"align": 1
 		},
 		"clap_plugin_context_menu": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "populate",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "target",
+							"type": "*",
+							"to": {
+								"type": "clap_context_menu_target"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "builder",
+							"type": "*",
+							"to": {
+								"type": "clap_context_menu_builder"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"name": "perform",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "target",
+							"type": "*",
+							"to": {
+								"type": "clap_context_menu_target"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "action_id"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 4
+				}
+			],
+			"size": 8,
+			"align": 1
 		},
 		"clap_host_context_menu": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "populate",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "target",
+							"type": "*",
+							"to": {
+								"type": "clap_context_menu_target"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "builder",
+							"type": "*",
+							"to": {
+								"type": "clap_context_menu_builder"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"name": "perform",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "target",
+							"type": "*",
+							"to": {
+								"type": "clap_context_menu_target"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "action_id"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 4
+				},
+				{
+					"name": "can_popup",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 8
+				},
+				{
+					"name": "popup",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "target",
+							"type": "*",
+							"to": {
+								"type": "clap_context_menu_target"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "int32",
+							"name": "screen_index"
+						},
+						{
+							"type": "int32",
+							"name": "x"
+						},
+						{
+							"type": "int32",
+							"name": "y"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 12
+				}
+			],
+			"size": 16,
+			"align": 1
 		},
 		"clap_host_event_registry": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "query",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "space_name",
+							"type": "*",
+							"to": {
+								"type": "int8"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "space_id",
+							"type": "*",
+							"to": {
+								"type": "uint16"
+							},
+							"toConst": false,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				}
+			],
+			"size": 4,
+			"align": 1
 		},
 		"clap_window": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "api",
+					"type": "*",
+					"to": {
+						"type": "int8"
+					},
+					"toConst": true,
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"name": "ptr",
+					"type": "*",
+					"to": {
+						"type": "void"
+					},
+					"toConst": false,
+					"size": 4,
+					"align": 4,
+					"offset": 4
+				}
+			],
+			"size": 8,
+			"align": 1
 		},
 		"clap_gui_resize_hints": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"type": "bool",
+					"name": "can_resize_horizontally",
+					"offset": 0
+				},
+				{
+					"type": "bool",
+					"name": "can_resize_vertically",
+					"offset": null
+				},
+				{
+					"type": "bool",
+					"name": "preserve_aspect_ratio",
+					"offset": null
+				},
+				{
+					"type": "uint32",
+					"name": "aspect_ratio_width",
+					"offset": null
+				},
+				{
+					"type": "uint32",
+					"name": "aspect_ratio_height",
+					"offset": null
+				}
+			],
+			"size": null,
+			"align": 1
 		},
 		"clap_plugin_gui": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "is_api_supported",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "api",
+							"type": "*",
+							"to": {
+								"type": "int8"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "bool",
+							"name": "is_floating"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"name": "get_preferred_api",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "api",
+							"type": "*",
+							"to": {
+								"type": "*",
+								"to": {
+									"type": "int8"
+								},
+								"toConst": true,
+								"size": 4,
+								"align": 4
+							},
+							"toConst": false,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "is_floating",
+							"type": "*",
+							"to": {
+								"type": "bool"
+							},
+							"toConst": false,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 4
+				},
+				{
+					"name": "create",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "api",
+							"type": "*",
+							"to": {
+								"type": "int8"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "bool",
+							"name": "is_floating"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 8
+				},
+				{
+					"name": "destroy",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 12
+				},
+				{
+					"name": "set_scale",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "double",
+							"name": "scale"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 16
+				},
+				{
+					"name": "get_size",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "width",
+							"type": "*",
+							"to": {
+								"type": "uint32"
+							},
+							"toConst": false,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "height",
+							"type": "*",
+							"to": {
+								"type": "uint32"
+							},
+							"toConst": false,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 20
+				},
+				{
+					"name": "can_resize",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 24
+				},
+				{
+					"name": "get_resize_hints",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "hints",
+							"type": "*",
+							"to": {
+								"type": "clap_gui_resize_hints"
+							},
+							"toConst": false,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 28
+				},
+				{
+					"name": "adjust_size",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "width",
+							"type": "*",
+							"to": {
+								"type": "uint32"
+							},
+							"toConst": false,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "height",
+							"type": "*",
+							"to": {
+								"type": "uint32"
+							},
+							"toConst": false,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 32
+				},
+				{
+					"name": "set_size",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "width"
+						},
+						{
+							"type": "uint32",
+							"name": "height"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 36
+				},
+				{
+					"name": "set_parent",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "window",
+							"type": "*",
+							"to": {
+								"type": "clap_window"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 40
+				},
+				{
+					"name": "set_transient",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "window",
+							"type": "*",
+							"to": {
+								"type": "clap_window"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 44
+				},
+				{
+					"name": "suggest_title",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "title",
+							"type": "*",
+							"to": {
+								"type": "int8"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 48
+				},
+				{
+					"name": "show",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 52
+				},
+				{
+					"name": "hide",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 56
+				}
+			],
+			"size": 60,
+			"align": 1
 		},
 		"clap_host_gui": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "resize_hints_changed",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"name": "request_resize",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "width"
+						},
+						{
+							"type": "uint32",
+							"name": "height"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 4
+				},
+				{
+					"name": "request_show",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 8
+				},
+				{
+					"name": "request_hide",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 12
+				},
+				{
+					"name": "closed",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "bool",
+							"name": "was_destroyed"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 16
+				}
+			],
+			"size": 20,
+			"align": 1
 		},
 		"clap_plugin_latency": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "get",
+					"type": "()",
+					"result": {
+						"type": "uint32",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				}
+			],
+			"size": 4,
+			"align": 1
 		},
 		"clap_host_latency": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "changed",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				}
+			],
+			"size": 4,
+			"align": 1
 		},
 		"clap_host_log": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "log",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "int32",
+							"name": "severity"
+						},
+						{
+							"name": "msg",
+							"type": "*",
+							"to": {
+								"type": "int8"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				}
+			],
+			"size": 4,
+			"align": 1
 		},
 		"clap_note_name": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"type": "[]",
+					"count": 256,
+					"name": "name",
+					"size": null,
+					"offset": 0
+				},
+				{
+					"type": "int16",
+					"name": "port",
+					"offset": null
+				},
+				{
+					"type": "int16",
+					"name": "key",
+					"offset": null
+				},
+				{
+					"type": "int16",
+					"name": "channel",
+					"offset": null
+				}
+			],
+			"size": null,
+			"align": 1
 		},
 		"clap_plugin_note_name": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "count",
+					"type": "()",
+					"result": {
+						"type": "uint32",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"name": "get",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "index"
+						},
+						{
+							"name": "note_name",
+							"type": "*",
+							"to": {
+								"type": "clap_note_name"
+							},
+							"toConst": false,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 4
+				}
+			],
+			"size": 8,
+			"align": 1
 		},
 		"clap_host_note_name": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "changed",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				}
+			],
+			"size": 4,
+			"align": 1
 		},
 		"clap_note_port_info": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"type": "uint32",
+					"name": "id",
+					"offset": 0
+				},
+				{
+					"type": "uint32",
+					"name": "supported_dialects",
+					"offset": null
+				},
+				{
+					"type": "uint32",
+					"name": "preferred_dialect",
+					"offset": null
+				},
+				{
+					"type": "[]",
+					"count": 256,
+					"name": "name",
+					"size": null,
+					"offset": null
+				}
+			],
+			"size": null,
+			"align": 1
 		},
 		"clap_plugin_note_ports": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "count",
+					"type": "()",
+					"result": {
+						"type": "uint32",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "bool",
+							"name": "is_input"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"name": "get",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "index"
+						},
+						{
+							"type": "bool",
+							"name": "is_input"
+						},
+						{
+							"name": "info",
+							"type": "*",
+							"to": {
+								"type": "clap_note_port_info"
+							},
+							"toConst": false,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 4
+				}
+			],
+			"size": 8,
+			"align": 1
 		},
 		"clap_host_note_ports": {
 			"type": "struct",
-			"fields": []
-		},
-		"clap_plugin_param_indication": {
-			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "supported_dialects",
+					"type": "()",
+					"result": {
+						"type": "uint32",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"name": "rescan",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "flags"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 4
+				}
+			],
+			"size": 8,
+			"align": 1
 		},
 		"clap_param_info": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"type": "uint32",
+					"name": "id",
+					"offset": 0
+				},
+				{
+					"type": "uint32",
+					"name": "flags",
+					"offset": null
+				},
+				{
+					"name": "cookie",
+					"type": "*",
+					"to": {
+						"type": "void"
+					},
+					"toConst": false,
+					"size": 4,
+					"align": 4,
+					"offset": null
+				},
+				{
+					"type": "[]",
+					"count": 256,
+					"name": "name",
+					"size": null,
+					"offset": null
+				},
+				{
+					"type": "[]",
+					"count": 1024,
+					"name": "module",
+					"size": null,
+					"offset": null
+				},
+				{
+					"type": "double",
+					"name": "min_value",
+					"offset": null
+				},
+				{
+					"type": "double",
+					"name": "max_value",
+					"offset": null
+				},
+				{
+					"type": "double",
+					"name": "default_value",
+					"offset": null
+				}
+			],
+			"size": null,
+			"align": 1
 		},
 		"clap_plugin_params": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "count",
+					"type": "()",
+					"result": {
+						"type": "uint32",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"name": "get_info",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "param_index"
+						},
+						{
+							"name": "param_info",
+							"type": "*",
+							"to": {
+								"type": "clap_param_info"
+							},
+							"toConst": false,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 4
+				},
+				{
+					"name": "get_value",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "param_id"
+						},
+						{
+							"name": "out_value",
+							"type": "*",
+							"to": {
+								"type": "double"
+							},
+							"toConst": false,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 8
+				},
+				{
+					"name": "value_to_text",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "param_id"
+						},
+						{
+							"type": "double",
+							"name": "value"
+						},
+						{
+							"name": "out_buffer",
+							"type": "*",
+							"to": {
+								"type": "int8"
+							},
+							"toConst": false,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "out_buffer_capacity"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 12
+				},
+				{
+					"name": "text_to_value",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "param_id"
+						},
+						{
+							"name": "param_value_text",
+							"type": "*",
+							"to": {
+								"type": "int8"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "out_value",
+							"type": "*",
+							"to": {
+								"type": "double"
+							},
+							"toConst": false,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 16
+				},
+				{
+					"name": "flush",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "in",
+							"type": "*",
+							"to": {
+								"type": "clap_input_events"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "out",
+							"type": "*",
+							"to": {
+								"type": "clap_output_events"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 20
+				}
+			],
+			"size": 24,
+			"align": 1
 		},
 		"clap_host_params": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "rescan",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "flags"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"name": "clear",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "param_id"
+						},
+						{
+							"type": "uint32",
+							"name": "flags"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 4
+				},
+				{
+					"name": "request_flush",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 8
+				}
+			],
+			"size": 12,
+			"align": 1
+		},
+		"clap_color": {
+			"type": "struct",
+			"fields": [
+				{
+					"type": "uint8",
+					"name": "alpha",
+					"offset": 0
+				},
+				{
+					"type": "uint8",
+					"name": "red",
+					"offset": null
+				},
+				{
+					"type": "uint8",
+					"name": "green",
+					"offset": null
+				},
+				{
+					"type": "uint8",
+					"name": "blue",
+					"offset": null
+				}
+			],
+			"size": null,
+			"align": 1
+		},
+		"clap_plugin_param_indication": {
+			"type": "struct",
+			"fields": [
+				{
+					"name": "set_mapping",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "param_id"
+						},
+						{
+							"type": "bool",
+							"name": "has_mapping"
+						},
+						{
+							"name": "color",
+							"type": "*",
+							"to": {
+								"type": "clap_color"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "label",
+							"type": "*",
+							"to": {
+								"type": "int8"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "description",
+							"type": "*",
+							"to": {
+								"type": "int8"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"name": "set_automation",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "param_id"
+						},
+						{
+							"type": "uint32",
+							"name": "automation_state"
+						},
+						{
+							"name": "color",
+							"type": "*",
+							"to": {
+								"type": "clap_color"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 4
+				}
+			],
+			"size": 8,
+			"align": 1
 		},
 		"clap_plugin_posix_fd_support": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "on_fd",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "int32",
+							"name": "fd"
+						},
+						{
+							"type": "uint32",
+							"name": "flags"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				}
+			],
+			"size": 4,
+			"align": 1
 		},
 		"clap_host_posix_fd_support": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "register_fd",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "int32",
+							"name": "fd"
+						},
+						{
+							"type": "uint32",
+							"name": "flags"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"name": "modify_fd",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "int32",
+							"name": "fd"
+						},
+						{
+							"type": "uint32",
+							"name": "flags"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 4
+				},
+				{
+					"name": "unregister_fd",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "int32",
+							"name": "fd"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 8
+				}
+			],
+			"size": 12,
+			"align": 1
 		},
 		"clap_plugin_preset_load": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "from_location",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "location_kind"
+						},
+						{
+							"name": "location",
+							"type": "*",
+							"to": {
+								"type": "int8"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "load_key",
+							"type": "*",
+							"to": {
+								"type": "int8"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				}
+			],
+			"size": 4,
+			"align": 1
 		},
 		"clap_host_preset_load": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "on_error",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "location_kind"
+						},
+						{
+							"name": "location",
+							"type": "*",
+							"to": {
+								"type": "int8"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "load_key",
+							"type": "*",
+							"to": {
+								"type": "int8"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "int32",
+							"name": "os_error"
+						},
+						{
+							"name": "msg",
+							"type": "*",
+							"to": {
+								"type": "int8"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"name": "loaded",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "location_kind"
+						},
+						{
+							"name": "location",
+							"type": "*",
+							"to": {
+								"type": "int8"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "load_key",
+							"type": "*",
+							"to": {
+								"type": "int8"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 4
+				}
+			],
+			"size": 8,
+			"align": 1
 		},
 		"clap_remote_controls_page": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"type": "[]",
+					"count": 256,
+					"name": "section_name",
+					"size": null,
+					"offset": 0
+				},
+				{
+					"type": "uint32",
+					"name": "page_id",
+					"offset": null
+				},
+				{
+					"type": "[]",
+					"count": 256,
+					"name": "page_name",
+					"size": null,
+					"offset": null
+				},
+				{
+					"type": "[]",
+					"count": 8,
+					"name": "param_ids",
+					"size": null,
+					"offset": null
+				},
+				{
+					"type": "bool",
+					"name": "is_for_preset",
+					"offset": null
+				}
+			],
+			"size": null,
+			"align": 1
 		},
 		"clap_plugin_remote_controls": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "count",
+					"type": "()",
+					"result": {
+						"type": "uint32",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"name": "get",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "page_index"
+						},
+						{
+							"name": "page",
+							"type": "*",
+							"to": {
+								"type": "clap_remote_controls_page"
+							},
+							"toConst": false,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 4
+				}
+			],
+			"size": 8,
+			"align": 1
 		},
 		"clap_host_remote_controls": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "changed",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"name": "suggest_page",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "page_id"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 4
+				}
+			],
+			"size": 8,
+			"align": 1
 		},
 		"clap_plugin_render": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "has_hard_realtime_requirement",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"name": "set",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "int32",
+							"name": "mode"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 4
+				}
+			],
+			"size": 8,
+			"align": 1
+		},
+		"clap_istream": {
+			"type": "struct",
+			"fields": [
+				{
+					"name": "ctx",
+					"type": "*",
+					"to": {
+						"type": "void"
+					},
+					"toConst": false,
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"name": "read",
+					"type": "()",
+					"result": {
+						"type": "int64",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "stream",
+							"type": "*",
+							"to": {
+								"type": "clap_istream"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "buffer",
+							"type": "*",
+							"to": {
+								"type": "void"
+							},
+							"toConst": false,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint64",
+							"name": "size"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 4
+				}
+			],
+			"size": 8,
+			"align": 1
+		},
+		"clap_ostream": {
+			"type": "struct",
+			"fields": [
+				{
+					"name": "ctx",
+					"type": "*",
+					"to": {
+						"type": "void"
+					},
+					"toConst": false,
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"name": "write",
+					"type": "()",
+					"result": {
+						"type": "int64",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "stream",
+							"type": "*",
+							"to": {
+								"type": "clap_ostream"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "buffer",
+							"type": "*",
+							"to": {
+								"type": "void"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint64",
+							"name": "size"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 4
+				}
+			],
+			"size": 8,
+			"align": 1
 		},
 		"clap_plugin_state_context": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "save",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "stream",
+							"type": "*",
+							"to": {
+								"type": "clap_ostream"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "context_type"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"name": "load",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "stream",
+							"type": "*",
+							"to": {
+								"type": "clap_istream"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "context_type"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 4
+				}
+			],
+			"size": 8,
+			"align": 1
 		},
 		"clap_plugin_state": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "save",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "stream",
+							"type": "*",
+							"to": {
+								"type": "clap_ostream"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"name": "load",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "stream",
+							"type": "*",
+							"to": {
+								"type": "clap_istream"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 4
+				}
+			],
+			"size": 8,
+			"align": 1
 		},
 		"clap_host_state": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "mark_dirty",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				}
+			],
+			"size": 4,
+			"align": 1
 		},
 		"clap_plugin_surround": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "is_channel_mask_supported",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint64",
+							"name": "channel_mask"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"name": "get_channel_map",
+					"type": "()",
+					"result": {
+						"type": "uint32",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "bool",
+							"name": "is_input"
+						},
+						{
+							"type": "uint32",
+							"name": "port_index"
+						},
+						{
+							"name": "channel_map",
+							"type": "*",
+							"to": {
+								"type": "uint8"
+							},
+							"toConst": false,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "channel_map_capacity"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 4
+				}
+			],
+			"size": 8,
+			"align": 1
 		},
 		"clap_host_surround": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "changed",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				}
+			],
+			"size": 4,
+			"align": 1
 		},
 		"clap_plugin_tail": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "get",
+					"type": "()",
+					"result": {
+						"type": "uint32",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				}
+			],
+			"size": 4,
+			"align": 1
 		},
 		"clap_host_tail": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "changed",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				}
+			],
+			"size": 4,
+			"align": 1
 		},
 		"clap_host_thread_check": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "is_main_thread",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"name": "is_audio_thread",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 4
+				}
+			],
+			"size": 8,
+			"align": 1
 		},
 		"clap_plugin_thread_pool": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "exec",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "task_index"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				}
+			],
+			"size": 4,
+			"align": 1
 		},
 		"clap_host_thread_pool": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "request_exec",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "num_tasks"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				}
+			],
+			"size": 4,
+			"align": 1
 		},
 		"clap_plugin_timer_support": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "on_timer",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "timer_id"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				}
+			],
+			"size": 4,
+			"align": 1
 		},
 		"clap_host_timer_support": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "register_timer",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "period_ms"
+						},
+						{
+							"name": "timer_id",
+							"type": "*",
+							"to": {
+								"type": "uint32"
+							},
+							"toConst": false,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"name": "unregister_timer",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "timer_id"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 4
+				}
+			],
+			"size": 8,
+			"align": 1
 		},
 		"clap_track_info": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"type": "uint64",
+					"name": "flags",
+					"offset": 0
+				},
+				{
+					"type": "[]",
+					"count": 256,
+					"name": "name",
+					"size": null,
+					"offset": null
+				},
+				{
+					"type": "clap_color",
+					"name": "color",
+					"offset": null
+				},
+				{
+					"type": "int32",
+					"name": "audio_channel_count",
+					"offset": null
+				},
+				{
+					"name": "audio_port_type",
+					"type": "*",
+					"to": {
+						"type": "int8"
+					},
+					"toConst": true,
+					"size": 4,
+					"align": 4,
+					"offset": null
+				}
+			],
+			"size": null,
+			"align": 1
 		},
 		"clap_plugin_track_info": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "changed",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				}
+			],
+			"size": 4,
+			"align": 1
 		},
 		"clap_host_track_info": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "get",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "info",
+							"type": "*",
+							"to": {
+								"type": "clap_track_info"
+							},
+							"toConst": false,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				}
+			],
+			"size": 4,
+			"align": 1
 		},
 		"clap_voice_info": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"type": "uint32",
+					"name": "voice_count",
+					"offset": 0
+				},
+				{
+					"type": "uint32",
+					"name": "voice_capacity",
+					"offset": null
+				},
+				{
+					"type": "uint64",
+					"name": "flags",
+					"offset": null
+				}
+			],
+			"size": null,
+			"align": 1
 		},
 		"clap_plugin_voice_info": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "get",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "info",
+							"type": "*",
+							"to": {
+								"type": "clap_voice_info"
+							},
+							"toConst": false,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				}
+			],
+			"size": 4,
+			"align": 1
 		},
 		"clap_host_voice_info": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "changed",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				}
+			],
+			"size": 4,
+			"align": 1
+		},
+		"clap_plugin_invalidation_source": {
+			"type": "struct",
+			"fields": [
+				{
+					"name": "directory",
+					"type": "*",
+					"to": {
+						"type": "int8"
+					},
+					"toConst": true,
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"name": "filename_glob",
+					"type": "*",
+					"to": {
+						"type": "int8"
+					},
+					"toConst": true,
+					"size": 4,
+					"align": 4,
+					"offset": 4
+				},
+				{
+					"type": "bool",
+					"name": "recursive_scan",
+					"offset": 8
+				}
+			],
+			"size": null,
+			"align": 1
+		},
+		"clap_plugin_invalidation_factory": {
+			"type": "struct",
+			"fields": [
+				{
+					"name": "count",
+					"type": "()",
+					"result": {
+						"type": "uint32",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "factory",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin_invalidation_factory"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"name": "get",
+					"type": "()",
+					"result": {
+						"name": "result",
+						"type": "*",
+						"to": {
+							"type": "clap_plugin_invalidation_source"
+						},
+						"toConst": true,
+						"size": 4,
+						"align": 4
+					},
+					"args": [
+						{
+							"name": "factory",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin_invalidation_factory"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "index"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 4
+				},
+				{
+					"name": "refresh",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "factory",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin_invalidation_factory"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 8
+				}
+			],
+			"size": 12,
+			"align": 1
+		},
+		"clap_plugin_state_converter_descriptor": {
+			"type": "struct",
+			"fields": [
+				{
+					"type": "clap_version",
+					"name": "clap_version",
+					"offset": 0
+				},
+				{
+					"type": "clap_universal_plugin_id",
+					"name": "src_plugin_id",
+					"offset": null
+				},
+				{
+					"type": "clap_universal_plugin_id",
+					"name": "dst_plugin_id",
+					"offset": null
+				},
+				{
+					"name": "id",
+					"type": "*",
+					"to": {
+						"type": "int8"
+					},
+					"toConst": true,
+					"size": 4,
+					"align": 4,
+					"offset": null
+				},
+				{
+					"name": "name",
+					"type": "*",
+					"to": {
+						"type": "int8"
+					},
+					"toConst": true,
+					"size": 4,
+					"align": 4,
+					"offset": null
+				},
+				{
+					"name": "vendor",
+					"type": "*",
+					"to": {
+						"type": "int8"
+					},
+					"toConst": true,
+					"size": 4,
+					"align": 4,
+					"offset": null
+				},
+				{
+					"name": "version",
+					"type": "*",
+					"to": {
+						"type": "int8"
+					},
+					"toConst": true,
+					"size": 4,
+					"align": 4,
+					"offset": null
+				},
+				{
+					"name": "description",
+					"type": "*",
+					"to": {
+						"type": "int8"
+					},
+					"toConst": true,
+					"size": 4,
+					"align": 4,
+					"offset": null
+				}
+			],
+			"size": null,
+			"align": 1
+		},
+		"clap_plugin_state_converter": {
+			"type": "struct",
+			"fields": [
+				{
+					"name": "desc",
+					"type": "*",
+					"to": {
+						"type": "clap_plugin_state_converter_descriptor"
+					},
+					"toConst": true,
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"name": "converter_data",
+					"type": "*",
+					"to": {
+						"type": "void"
+					},
+					"toConst": false,
+					"size": 4,
+					"align": 4,
+					"offset": 4
+				},
+				{
+					"name": "destroy",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "converter",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin_state_converter"
+							},
+							"toConst": false,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 8
+				},
+				{
+					"name": "convert_state",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "converter",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin_state_converter"
+							},
+							"toConst": false,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "src",
+							"type": "*",
+							"to": {
+								"type": "clap_istream"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "dst",
+							"type": "*",
+							"to": {
+								"type": "clap_ostream"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "error_buffer",
+							"type": "*",
+							"to": {
+								"type": "int8"
+							},
+							"toConst": false,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "error_buffer_size"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 12
+				},
+				{
+					"name": "convert_normalized_value",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "converter",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin_state_converter"
+							},
+							"toConst": false,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "src_param_id"
+						},
+						{
+							"type": "double",
+							"name": "src_normalized_value"
+						},
+						{
+							"name": "dst_param_id",
+							"type": "*",
+							"to": {
+								"type": "uint32"
+							},
+							"toConst": false,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "dst_normalized_value",
+							"type": "*",
+							"to": {
+								"type": "double"
+							},
+							"toConst": false,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 16
+				},
+				{
+					"name": "convert_plain_value",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "converter",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin_state_converter"
+							},
+							"toConst": false,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "src_param_id"
+						},
+						{
+							"type": "double",
+							"name": "src_plain_value"
+						},
+						{
+							"name": "dst_param_id",
+							"type": "*",
+							"to": {
+								"type": "uint32"
+							},
+							"toConst": false,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "dst_plain_value",
+							"type": "*",
+							"to": {
+								"type": "double"
+							},
+							"toConst": false,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 20
+				}
+			],
+			"size": 24,
+			"align": 1
+		},
+		"clap_plugin_state_converter_factory": {
+			"type": "struct",
+			"fields": [
+				{
+					"name": "count",
+					"type": "()",
+					"result": {
+						"type": "uint32",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "factory",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin_state_converter_factory"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"name": "get_descriptor",
+					"type": "()",
+					"result": {
+						"name": "result",
+						"type": "*",
+						"to": {
+							"type": "clap_plugin_state_converter_descriptor"
+						},
+						"toConst": true,
+						"size": 4,
+						"align": 4
+					},
+					"args": [
+						{
+							"name": "factory",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin_state_converter_factory"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "index"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 4
+				},
+				{
+					"name": "create",
+					"type": "()",
+					"result": {
+						"name": "result",
+						"type": "*",
+						"to": {
+							"type": "clap_plugin_state_converter"
+						},
+						"toConst": false,
+						"size": 4,
+						"align": 4
+					},
+					"args": [
+						{
+							"name": "factory",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin_state_converter_factory"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "converter_id",
+							"type": "*",
+							"to": {
+								"type": "int8"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 8
+				}
+			],
+			"size": 12,
+			"align": 1
 		},
 		"clap_plugin_extensible_audio_ports": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "add_port",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "bool",
+							"name": "is_input"
+						},
+						{
+							"type": "uint32",
+							"name": "channel_count"
+						},
+						{
+							"name": "port_type",
+							"type": "*",
+							"to": {
+								"type": "int8"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "port_details",
+							"type": "*",
+							"to": {
+								"type": "void"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"name": "remove_port",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "bool",
+							"name": "is_input"
+						},
+						{
+							"type": "uint32",
+							"name": "index"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 4
+				}
+			],
+			"size": 8,
+			"align": 1
 		},
 		"clap_plugin_gain_adjustment_metering": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "get",
+					"type": "()",
+					"result": {
+						"type": "double",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				}
+			],
+			"size": 4,
+			"align": 1
 		},
 		"clap_mini_curve_display_curve_hints": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"type": "double",
+					"name": "x_min",
+					"offset": 0
+				},
+				{
+					"type": "double",
+					"name": "x_max",
+					"offset": null
+				},
+				{
+					"type": "double",
+					"name": "y_min",
+					"offset": null
+				},
+				{
+					"type": "double",
+					"name": "y_max",
+					"offset": null
+				}
+			],
+			"size": null,
+			"align": 1
 		},
 		"clap_mini_curve_display_curve_data": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"type": "int32",
+					"name": "curve_kind",
+					"offset": 0
+				},
+				{
+					"name": "values",
+					"type": "*",
+					"to": {
+						"type": "uint16"
+					},
+					"toConst": false,
+					"size": 4,
+					"align": 4,
+					"offset": null
+				},
+				{
+					"type": "uint32",
+					"name": "values_count",
+					"offset": null
+				}
+			],
+			"size": null,
+			"align": 1
 		},
 		"clap_plugin_mini_curve_display": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "get_curve_count",
+					"type": "()",
+					"result": {
+						"type": "uint32",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"name": "render",
+					"type": "()",
+					"result": {
+						"type": "uint32",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "curves",
+							"type": "*",
+							"to": {
+								"type": "clap_mini_curve_display_curve_data"
+							},
+							"toConst": false,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "curves_size"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 4
+				},
+				{
+					"name": "set_observed",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "bool",
+							"name": "is_observed"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 8
+				},
+				{
+					"name": "get_axis_name",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "curve_index"
+						},
+						{
+							"name": "x_name",
+							"type": "*",
+							"to": {
+								"type": "int8"
+							},
+							"toConst": false,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "y_name",
+							"type": "*",
+							"to": {
+								"type": "int8"
+							},
+							"toConst": false,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "name_capacity"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 12
+				}
+			],
+			"size": 16,
+			"align": 1
 		},
 		"clap_host_mini_curve_display": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "get_hints",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "kind"
+						},
+						{
+							"name": "hints",
+							"type": "*",
+							"to": {
+								"type": "clap_mini_curve_display_curve_hints"
+							},
+							"toConst": false,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"name": "set_dynamic",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "bool",
+							"name": "is_dynamic"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 4
+				},
+				{
+					"name": "changed",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "flags"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 8
+				}
+			],
+			"size": 12,
+			"align": 1
 		},
 		"clap_project_location_element": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"type": "uint64",
+					"name": "flags",
+					"offset": 0
+				},
+				{
+					"type": "uint32",
+					"name": "kind",
+					"offset": null
+				},
+				{
+					"type": "uint32",
+					"name": "track_kind",
+					"offset": null
+				},
+				{
+					"type": "uint32",
+					"name": "index",
+					"offset": null
+				},
+				{
+					"type": "[]",
+					"count": 1024,
+					"name": "id",
+					"size": null,
+					"offset": null
+				},
+				{
+					"type": "[]",
+					"count": 256,
+					"name": "name",
+					"size": null,
+					"offset": null
+				},
+				{
+					"type": "clap_color",
+					"name": "color",
+					"offset": null
+				}
+			],
+			"size": null,
+			"align": 1
 		},
 		"clap_plugin_project_location": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "set",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "path",
+							"type": "*",
+							"to": {
+								"type": "clap_project_location_element"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "num_elements"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				}
+			],
+			"size": 4,
+			"align": 1
 		},
 		"clap_plugin_resource_directory": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "set_directory",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "path",
+							"type": "*",
+							"to": {
+								"type": "int8"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "bool",
+							"name": "is_shared"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"name": "collect",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "bool",
+							"name": "all"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 4
+				},
+				{
+					"name": "get_files_count",
+					"type": "()",
+					"result": {
+						"type": "uint32",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 8
+				},
+				{
+					"name": "get_file_path",
+					"type": "()",
+					"result": {
+						"type": "int32",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "index"
+						},
+						{
+							"name": "path",
+							"type": "*",
+							"to": {
+								"type": "int8"
+							},
+							"toConst": false,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "path_size"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 12
+				}
+			],
+			"size": 16,
+			"align": 1
 		},
 		"clap_host_resource_directory": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "request_directory",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "bool",
+							"name": "is_shared"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"name": "release_directory",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "bool",
+							"name": "is_shared"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 4
+				}
+			],
+			"size": 8,
+			"align": 1
 		},
 		"clap_host_scratch_memory": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "reserve",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "scratch_size_bytes"
+						},
+						{
+							"type": "uint32",
+							"name": "max_concurrency_hint"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"name": "access",
+					"type": "()",
+					"result": {
+						"name": "result",
+						"type": "*",
+						"to": {
+							"type": "void"
+						},
+						"toConst": false,
+						"size": 4,
+						"align": 4
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 4
+				}
+			],
+			"size": 8,
+			"align": 1
 		},
 		"clap_host_transport_control": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "request_start",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"name": "request_stop",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 4
+				},
+				{
+					"name": "request_continue",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 8
+				},
+				{
+					"name": "request_pause",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 12
+				},
+				{
+					"name": "request_toggle_play",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 16
+				},
+				{
+					"name": "request_jump",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "int64",
+							"name": "position"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 20
+				},
+				{
+					"name": "request_loop_region",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "int64",
+							"name": "start"
+						},
+						{
+							"type": "int64",
+							"name": "duration"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 24
+				},
+				{
+					"name": "request_toggle_loop",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 28
+				},
+				{
+					"name": "request_enable_loop",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "bool",
+							"name": "is_enabled"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 32
+				},
+				{
+					"name": "request_record",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "bool",
+							"name": "is_recording"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 36
+				},
+				{
+					"name": "request_toggle_record",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 40
+				}
+			],
+			"size": 44,
+			"align": 1
 		},
 		"clap_event_trigger": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"type": "clap_event_header",
+					"name": "header",
+					"offset": 0
+				},
+				{
+					"type": "uint32",
+					"name": "trigger_id",
+					"offset": null
+				},
+				{
+					"name": "cookie",
+					"type": "*",
+					"to": {
+						"type": "void"
+					},
+					"toConst": false,
+					"size": 4,
+					"align": 4,
+					"offset": null
+				},
+				{
+					"type": "int32",
+					"name": "note_id",
+					"offset": null
+				},
+				{
+					"type": "int16",
+					"name": "port_index",
+					"offset": null
+				},
+				{
+					"type": "int16",
+					"name": "channel",
+					"offset": null
+				},
+				{
+					"type": "int16",
+					"name": "key",
+					"offset": null
+				}
+			],
+			"size": null,
+			"align": 1
 		},
 		"clap_trigger_info": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"type": "uint32",
+					"name": "id",
+					"offset": 0
+				},
+				{
+					"type": "uint32",
+					"name": "flags",
+					"offset": null
+				},
+				{
+					"name": "cookie",
+					"type": "*",
+					"to": {
+						"type": "void"
+					},
+					"toConst": false,
+					"size": 4,
+					"align": 4,
+					"offset": null
+				},
+				{
+					"type": "[]",
+					"count": 256,
+					"name": "name",
+					"size": null,
+					"offset": null
+				},
+				{
+					"type": "[]",
+					"count": 1024,
+					"name": "module",
+					"size": null,
+					"offset": null
+				}
+			],
+			"size": null,
+			"align": 1
 		},
 		"clap_plugin_triggers": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "count",
+					"type": "()",
+					"result": {
+						"type": "uint32",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"name": "get_info",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "index"
+						},
+						{
+							"name": "trigger_info",
+							"type": "*",
+							"to": {
+								"type": "clap_trigger_info"
+							},
+							"toConst": false,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 4
+				}
+			],
+			"size": 8,
+			"align": 1
 		},
 		"clap_host_triggers": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "rescan",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "flags"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"name": "clear",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "trigger_id"
+						},
+						{
+							"type": "uint32",
+							"name": "flags"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 4
+				}
+			],
+			"size": 8,
+			"align": 1
 		},
 		"clap_event_tuning": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"type": "clap_event_header",
+					"name": "header",
+					"offset": 0
+				},
+				{
+					"type": "int16",
+					"name": "port_index",
+					"offset": null
+				},
+				{
+					"type": "int16",
+					"name": "channel",
+					"offset": null
+				},
+				{
+					"type": "uint32",
+					"name": "tunning_id",
+					"offset": null
+				}
+			],
+			"size": null,
+			"align": 1
 		},
 		"clap_tuning_info": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"type": "uint32",
+					"name": "tuning_id",
+					"offset": 0
+				},
+				{
+					"type": "[]",
+					"count": 256,
+					"name": "name",
+					"size": null,
+					"offset": null
+				},
+				{
+					"type": "bool",
+					"name": "is_dynamic",
+					"offset": null
+				}
+			],
+			"size": null,
+			"align": 1
 		},
 		"clap_plugin_tuning": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "changed",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				}
+			],
+			"size": 4,
+			"align": 1
 		},
 		"clap_host_tuning": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "get_relative",
+					"type": "()",
+					"result": {
+						"type": "double",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "tuning_id"
+						},
+						{
+							"type": "int32",
+							"name": "channel"
+						},
+						{
+							"type": "int32",
+							"name": "key"
+						},
+						{
+							"type": "uint32",
+							"name": "sample_offset"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"name": "should_play",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "tuning_id"
+						},
+						{
+							"type": "int32",
+							"name": "channel"
+						},
+						{
+							"type": "int32",
+							"name": "key"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 4
+				},
+				{
+					"name": "get_tuning_count",
+					"type": "()",
+					"result": {
+						"type": "uint32",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 8
+				},
+				{
+					"name": "get_info",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "tuning_index"
+						},
+						{
+							"name": "info",
+							"type": "*",
+							"to": {
+								"type": "clap_tuning_info"
+							},
+							"toConst": false,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 12
+				}
+			],
+			"size": 16,
+			"align": 1
 		},
 		"clap_undo_delta_properties": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"type": "bool",
+					"name": "has_delta",
+					"offset": 0
+				},
+				{
+					"type": "bool",
+					"name": "are_deltas_persistent",
+					"offset": null
+				},
+				{
+					"type": "uint32",
+					"name": "format_version",
+					"offset": null
+				}
+			],
+			"size": null,
+			"align": 1
 		},
 		"clap_plugin_undo_delta": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "get_delta_properties",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "properties",
+							"type": "*",
+							"to": {
+								"type": "clap_undo_delta_properties"
+							},
+							"toConst": false,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"name": "can_use_delta_format_version",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "format_version"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 4
+				},
+				{
+					"name": "undo",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "format_version"
+						},
+						{
+							"name": "delta",
+							"type": "*",
+							"to": {
+								"type": "void"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "delta_size"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 8
+				},
+				{
+					"name": "redo",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "format_version"
+						},
+						{
+							"name": "delta",
+							"type": "*",
+							"to": {
+								"type": "void"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "delta_size"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 12
+				}
+			],
+			"size": 16,
+			"align": 1
 		},
 		"clap_plugin_undo_context": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "set_can_undo",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "bool",
+							"name": "can_undo"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"name": "set_can_redo",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "bool",
+							"name": "can_redo"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 4
+				},
+				{
+					"name": "set_undo_name",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "name",
+							"type": "*",
+							"to": {
+								"type": "int8"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 8
+				},
+				{
+					"name": "set_redo_name",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "name",
+							"type": "*",
+							"to": {
+								"type": "int8"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 12
+				}
+			],
+			"size": 16,
+			"align": 1
 		},
 		"clap_host_undo": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "begin_change",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"name": "cancel_change",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 4
+				},
+				{
+					"name": "change_made",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "name",
+							"type": "*",
+							"to": {
+								"type": "int8"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "delta",
+							"type": "*",
+							"to": {
+								"type": "void"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "delta_size"
+						},
+						{
+							"type": "bool",
+							"name": "delta_can_undo"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 8
+				},
+				{
+					"name": "request_undo",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 12
+				},
+				{
+					"name": "request_redo",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 16
+				},
+				{
+					"name": "set_wants_context_updates",
+					"type": "()",
+					"result": {
+						"type": "void",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "bool",
+							"name": "is_subscribed"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 20
+				}
+			],
+			"size": 24,
+			"align": 1
 		},
 		"clap_plugin_webview": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "get_uri",
+					"type": "()",
+					"result": {
+						"type": "int32",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "uri",
+							"type": "*",
+							"to": {
+								"type": "int8"
+							},
+							"toConst": false,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "uri_capacity"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				},
+				{
+					"name": "get_resource",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "path",
+							"type": "*",
+							"to": {
+								"type": "int8"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "mime",
+							"type": "*",
+							"to": {
+								"type": "int8"
+							},
+							"toConst": false,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "mime_capacity"
+						},
+						{
+							"name": "data_stream",
+							"type": "*",
+							"to": {
+								"type": "clap_ostream"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 4
+				},
+				{
+					"name": "receive",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "plugin",
+							"type": "*",
+							"to": {
+								"type": "clap_plugin"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "buffer",
+							"type": "*",
+							"to": {
+								"type": "void"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "size"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 8
+				}
+			],
+			"size": 12,
+			"align": 1
 		},
 		"clap_host_webview": {
 			"type": "struct",
-			"fields": []
+			"fields": [
+				{
+					"name": "send",
+					"type": "()",
+					"result": {
+						"type": "bool",
+						"name": "result"
+					},
+					"args": [
+						{
+							"name": "host",
+							"type": "*",
+							"to": {
+								"type": "clap_host"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"name": "buffer",
+							"type": "*",
+							"to": {
+								"type": "void"
+							},
+							"toConst": true,
+							"size": 4,
+							"align": 4
+						},
+						{
+							"type": "uint32",
+							"name": "size"
+						}
+					],
+					"size": 4,
+					"align": 4,
+					"offset": 0
+				}
+			],
+			"size": 4,
+			"align": 1
 		}
+	},
+	"aliases": {
+		"char": "int8",
+		"int": "int32",
+		"size": "uint32",
+		"clap_beattime": "int64",
+		"clap_sectime": "int64",
+		"clap_id": "uint32",
+		"clap_note_expression": "int32",
+		"clap_process_status": "int32",
+		"clap_timestamp": "uint64",
+		"clap_context_menu_item_kind": "uint32",
+		"clap_xwnd": "unsigned long",
+		"clap_log_severity": "int32",
+		"clap_param_info_flags": "uint32",
+		"clap_param_rescan_flags": "uint32",
+		"clap_param_clear_flags": "uint32",
+		"clap_posix_fd_flags": "uint32",
+		"clap_plugin_render_mode": "int32",
+		"clap_trigger_info_flags": "uint32",
+		"clap_trigger_rescan_flags": "uint32",
+		"clap_trigger_clear_flags": "uint32"
 	}
 }
