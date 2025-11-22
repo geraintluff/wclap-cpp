@@ -63,10 +63,15 @@ function resolveField(api, field, structName) {
 			size: api.pointerBytes,
 			align: api.pointerBytes,
 		};
-	} else if (!api.types[typeName]) {
-		throw Error(`unknown type for ${structName}.${field.name}: ${field.type}`);
+	} else {
+		let fieldType = api.types[typeName];
+		if (!fieldType) {
+			throw Error(`unknown type for ${structName}.${field.name}: ${field.type}`);
+		}
+		field.size = fieldType.size;
+		field.align = fieldType.align;
 	}
-	
+
 	return field;
 }
 
@@ -87,8 +92,8 @@ function startApi(pointerBytes) {
 		api.types[name] = {
 			type: "value",
 			size: bytes,
-			arraySize: bytes,
-			align: bytes
+			align: bytes,
+			direct: true
 		};
 	};
 	addNumber("float", 4);
@@ -211,12 +216,20 @@ function fillStructType(api, name, fields) {
 		fields: [],
 		size: 0,
 		align: 1,
+		direct: true,
 	});
 	let currentOffset = 0;
 	let hasPointer = false;
 	function addField(field) {
 		field = resolveField(api, field, name);
+		let fieldType = api.types[field.type];
+		if (fieldType) {
+			field.size = fieldType.size;
+			field.align = fieldType.align;
+		}
+		if (!fieldType?.direct) struct.direct = false;
 		while (currentOffset%field.align) ++currentOffset;
+
 		field.offset = currentOffset;
 		struct.size = currentOffset += field.size;
 		struct.fields.push(field);
@@ -283,6 +296,9 @@ function fillStructType(api, name, fields) {
 					console.log("suspicious argument name:", argType, args);
 				}
 				argType = resolveField(api, argType, `${name}.${field.name}()`);
+				// C struct size doesn't necessarily match to WASM interface size
+				delete argType.size;
+				delete argType.align;
 				field.args.push(argType);
 			});
 
