@@ -9,6 +9,15 @@ namespace wclap32 {
 		operator bool() const {
 			return (bool)wasmPointer;
 		}
+		
+		operator Pointer<const T>() const {
+			return {wasmPointer};
+		}
+		
+		template<class T2>
+		Pointer<T2> cast() const {
+			return {wasmPointer};
+		}
 	};
 	template<class Return, class... Args>
 	struct Function {
@@ -24,6 +33,15 @@ namespace wclap64 {
 		uint64_t wasmPointer;
 		operator bool() const {
 			return (bool)wasmPointer;
+		}
+
+		operator Pointer<const T>() const {
+			return {wasmPointer};
+		}
+
+		template<class T2>
+		Pointer<T2> cast() const {
+			return {wasmPointer};
 		}
 	};
 	template<class Return, class... Args>

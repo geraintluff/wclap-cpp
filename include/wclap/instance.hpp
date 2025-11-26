@@ -21,15 +21,20 @@ public:
 		impl.threadSpawn = threadSpawnImpl;
 	}
 	
+	// Path inside its own virtual filesystem
+	const char * path() const {
+		return impl.path();
+	}
+	
 	bool is64() const {
 		return impl.is64();
 	}
 
 	// Main thread - this should call _initialize() etc. but not clap_entry.init()
-	wclap32::Pointer<wclap32::wclap_plugin_entry> init32() {
+	wclap32::Pointer<const wclap32::wclap_plugin_entry> init32() {
 		return impl.init32();
 	}
-	wclap64::Pointer<wclap64::wclap_plugin_entry> init64() {
+	wclap64::Pointer<const wclap64::wclap_plugin_entry> init64() {
 		return impl.init64();
 	}
 
@@ -44,17 +49,17 @@ public:
 	//---- wclap32 ----//
 
 	template<class V>
-	V get(wclap32::Pointer<V> ptr) {
-		return impl.get(ptr);
+	V get(wclap32::Pointer<V> ptr, size_t index=0) {
+		return impl.get(ptr, index);
 	}
 	template<class V>
-	bool getArray(wclap32::Pointer<V> ptr, V *result, size_t count) {
+	bool getArray(wclap32::Pointer<const V> ptr, V *result, size_t count) {
 		return impl.getArray(ptr, result, count);
 	}
 
 	template<class V>
-	bool set(wclap32::Pointer<V> ptr, const V &value) {
-		return impl.set(ptr, value);
+	bool set(wclap32::Pointer<V> ptr, const V &value, size_t index=0) {
+		return impl.set(ptr, value, index);
 	}
 	template<class V>
 	bool setArray(wclap32::Pointer<V> ptr, const V *value, size_t count) {
@@ -66,9 +71,10 @@ public:
 		return impl.countUntil(ptr, endValue, maxCount);
 	}
 
-	template<class Return, class... Args>
-	Return call(wclap32::Function<Return, Args...> fnPtr, Args... args) {
-		return impl.call(fnPtr, args...);
+	template<class Return, class... Args, class... CArgs>
+	Return call(wclap32::Function<Return, Args...> fnPtr, CArgs... args) {
+		// Strongly matches on the function args, but then implicitly converts here
+		return impl.template call<Return, Args...>(fnPtr, args...);
 	}
 
 	wclap32::Pointer<void> malloc32(uint32_t size) {
@@ -84,17 +90,17 @@ public:
 
 	//---- wclap64 ----//
 	template<class V>
-	V get(wclap64::Pointer<V> ptr) {
-		return impl.get(ptr);
+	V get(wclap64::Pointer<V> ptr, size_t index=0) {
+		return impl.get(ptr, index);
 	}
 	template<class V>
-	bool getArray(wclap64::Pointer<V> ptr, V *result, size_t count) {
+	bool getArray(wclap64::Pointer<const V> ptr, V *result, size_t count) {
 		return impl.getArray(ptr, result, count);
 	}
 
 	template<class V>
-	bool set(wclap64::Pointer<V> ptr, const V &value) {
-		return impl.set(ptr, value);
+	bool set(wclap64::Pointer<V> ptr, const V &value, size_t index=0) {
+		return impl.set(ptr, value, index);
 	}
 	template<class V>
 	bool setArray(wclap64::Pointer<V> ptr, const V *value, size_t count) {
@@ -106,9 +112,9 @@ public:
 		return impl.countUntil(ptr, endValue, maxCount);
 	}
 
-	template<class Return, class... Args>
-	Return call(wclap64::Function<Return, Args...> fnPtr, Args... args) {
-		return impl.call(fnPtr, args...);
+	template<class Return, class... Args, class... CArgs>
+	Return call(wclap64::Function<Return, Args...> fnPtr, CArgs... args) {
+		return impl.template call<Return, Args...>(fnPtr, args...);
 	}
 
 	wclap64::Pointer<void> malloc64(uint32_t size) {
