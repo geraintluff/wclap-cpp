@@ -10,15 +10,15 @@ template<class ActualImpl>
 class Instance {
 	ActualImpl impl;
 	static int threadSpawnImpl(ActualImpl *impl, uint64_t startArg) {
-		auto *self = *(Instance *)impl; // first field, has same address
+		auto *self = (Instance *)impl; // first field, has same address
 		if (!self->threadSpawn) return -1; // not supported
-		return self->threadSpawn(*self, startArg);
+		return self->threadSpawn(self, startArg);
 	}
 
 public:
 	template<class... Args>
 	Instance(Args &&...args) : impl(std::forward<Args>(args)...) {
-		impl.threadSpawn = threadSpawn;
+		impl.threadSpawn = threadSpawnImpl;
 	}
 	
 	bool is64() const {
