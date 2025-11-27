@@ -1,18 +1,20 @@
-# WCLAP
+# WCLAP C++ helpers
+
+## What is a WCLAP?
 
 A WCLAP is a CLAP module compiled to WebAssembly (`wasm32` or `wasm64`).  It must:
 
 * export `clap_entry` (an integer which is secretly `clap_plugin_entry *`)
 * export `malloc()` or something like it (`void * malloc(size_t)`)
-* import or export memory (which *may* be shared) - if it does both, hosts should ignore the export.
+* import memory (must be shared) or export memory (may be shared) - if it does both, hosts should ignore the export.
 
-The `wasm32` architecture is the most widely supported, but hosts should still check the integer type of `clap_entry` and `malloc` to be sure.
+The `wasm32` architecture is the most likely, but hosts should still check the integer type of `clap_entry` (and signature of `malloc`) to be sure.  There's not really an advantage to `wasm64` unless you're also using 64-bit memory, and support for that isn't universal.
 
 If the WCLAP is a directory (or when fetched via URL, a `.tar.gz` which expands into a directory) then the actual binary should be `./module.wasm`.
 
-The WCLAP may import WASI, and hosts should provide this where possible.  If the plugin is a directory, that entire directory should be available through the WASI filesystem (and pointed to in `clap_entry.init()`).
+The WCLAP may import WASI, and hosts should provide this where possible.  If the plugin is a directory, that entire directory should be available through the WASI filesystem (and pointed to in `clap_entry.init()`), but not necessarily at the top-level.
 
-## WCLAP C++ API
+## C++ API
 
 This repo includes the C++ header `wclap/wclap.hpp` which defines WCLAP equivalents to all the CLAP types.  These have the (function-)pointers replaced, so (as long as the host architecture is little-endian) they can be copied bitwise from the corresponding CLAP types inside the WASM memory.
 
@@ -24,7 +26,9 @@ These structures can't contain pointers, since those will all be specified relat
 
 To actually set/get `Pointer<>`s, or call `Function<>`s, you need an `Instance`.  This is an abstract interface defined in `wclap/instance.hpp`.
 
-The idea is to abstract "a WCLAP running in some unknown WASM engine", making it easier to write a host and swap the WASM engine out later.  WASI support is up to the `Instance`, and there may be some implementation-specific config there.
+The idea is to abstract "a WCLAP running in some unknown WASM engine", making it easier to write a host and swap the WASM engine out later.  WASI support is up to the `Instance`, and there may be some implementation-specific config there:
+
+![wclap-cpp overview diagram](doc/wclap-cpp-outline.png)
 
 All host functions must be registered before calling `Instance::init()`, and will have different `Function<>` values when registered on different `Instance`s.
 
