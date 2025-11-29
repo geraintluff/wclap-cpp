@@ -65,14 +65,12 @@ public:
 	template<class V>
 	std::remove_cv_t<V> get(wclap32::Pointer<V> ptr, size_t index=0) {
 		std::remove_cv_t<V> value{};
-		wclap32::Pointer<V> indexPtr{ptr.wasmPointer + uint32_t(sizeof(V)*index)};
-		getArray(indexPtr, &value, 1);
+		getArray(ptr + index, &value, 1);
 		return value;
 	}
 	template<class V>
 	bool set(wclap32::Pointer<V> ptr, std::remove_cv_t<V> value, size_t index=0) {
-		wclap32::Pointer<V> indexPtr{ptr.wasmPointer + uint32_t(sizeof(V)*index)};
-		return setArray(ptr, value, 1);
+		return setArray(ptr + index, value, 1);
 	}
 
 	template<class V>
@@ -110,14 +108,12 @@ public:
 	template<class V>
 	std::remove_cv_t<V> get(wclap64::Pointer<V> ptr, size_t index=0) {
 		std::remove_cv_t<V> value{};
-		wclap64::Pointer<V> indexPtr{ptr.wasmPointer + uint64_t(sizeof(V)*index)};
-		getArray(indexPtr, &value, 1);
+		getArray(ptr + index, &value, 1);
 		return value;
 	}
 	template<class V>
 	bool set(wclap64::Pointer<V> ptr, std::remove_cv_t<V> value, size_t index=0) {
-		wclap64::Pointer<V> indexPtr{ptr.wasmPointer + uint64_t(sizeof(V)*index)};
-		return setArray(ptr, value, 1);
+		return setArray(ptr + index, value, 1);
 	}
 
 	template<class V>

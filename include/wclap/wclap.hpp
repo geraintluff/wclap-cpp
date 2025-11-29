@@ -6,7 +6,9 @@ namespace wclap32 {
 	template<class T>
 	struct Pointer {
 		uint32_t wasmPointer;
-		operator bool() const {
+		Pointer(uint32_t wasmPointer=0) : wasmPointer(wasmPointer) {}
+		
+		explicit operator bool() const {
 			return (bool)wasmPointer;
 		}
 		
@@ -17,6 +19,14 @@ namespace wclap32 {
 		template<class T2>
 		Pointer<T2> cast() const {
 			return {wasmPointer};
+		}
+		
+		Pointer operator+(int32_t delta) {
+			return {wasmPointer + delta*sizeof(T)};
+		}
+		Pointer &operator+=(int32_t delta) {
+			wasmPointer += delta*sizeof(T);
+			return *this;
 		}
 	};
 	template<class Return, class... Args>
@@ -31,7 +41,9 @@ namespace wclap64 {
 	template<class T>
 	struct Pointer {
 		uint64_t wasmPointer;
-		operator bool() const {
+		Pointer(uint64_t wasmPointer=0) : wasmPointer(wasmPointer) {}
+
+		explicit operator bool() const {
 			return (bool)wasmPointer;
 		}
 
@@ -42,6 +54,14 @@ namespace wclap64 {
 		template<class T2>
 		Pointer<T2> cast() const {
 			return {wasmPointer};
+		}
+
+		Pointer operator+(int64_t delta) {
+			return {wasmPointer + delta*sizeof(T)};
+		}
+		Pointer &operator+=(int64_t delta) {
+			wasmPointer += delta*sizeof(T);
+			return *this;
 		}
 	};
 	template<class Return, class... Args>

@@ -20,10 +20,10 @@ struct MemoryArena {
 	
 	MemoryArena(Instance *instance, Size size=16384) : instance(instance) {
 		if (is64) {
-			start = Size(instance->malloc64(uint64_t(size)));
+			start = Size(instance->malloc64(uint64_t(size)).wasmPointer);
 			end = start + size;
 		} else {
-			start = Size(instance->malloc32(uint32_t(size)));
+			start = Size(instance->malloc32(uint32_t(size)).wasmPointer);
 			end = start + size;
 		}
 		cleanStart = start;
