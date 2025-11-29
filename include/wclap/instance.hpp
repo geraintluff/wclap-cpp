@@ -69,8 +69,8 @@ public:
 		return value;
 	}
 	template<class V>
-	bool set(wclap32::Pointer<V> ptr, std::remove_cv_t<V> value, size_t index=0) {
-		return setArray(ptr + index, value, 1);
+	bool set(wclap32::Pointer<V> ptr, const std::remove_cv_t<V> &value, size_t index=0) {
+		return setArray(ptr + index, &value, 1);
 	}
 
 	template<class V>
@@ -112,8 +112,8 @@ public:
 		return value;
 	}
 	template<class V>
-	bool set(wclap64::Pointer<V> ptr, std::remove_cv_t<V> value, size_t index=0) {
-		return setArray(ptr + index, value, 1);
+	bool set(wclap64::Pointer<V> ptr, const std::remove_cv_t<V> &value, size_t index=0) {
+		return setArray(ptr + index, &value, 1);
 	}
 
 	template<class V>
