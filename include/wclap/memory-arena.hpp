@@ -1,5 +1,6 @@
 #include "./wclap.hpp"
 
+#include <mutex>
 #include <shared_mutex>
 #include <type_traits>
 #include <cstring>
@@ -19,7 +20,7 @@ struct MemoryArena {
 
 	ArenaPool &pool;
 	bool ok = false;
-	
+
 	MemoryArena(ArenaPool &pool, Instance *instance, Size size=16384) : pool(pool), instance(instance) {
 		if constexpr (is64) {
 			start = instance->malloc64(size).wasmPointer;
@@ -84,8 +85,9 @@ struct MemoryArena {
 		MemoryArena &arena;
 		std::unique_ptr<MemoryArena> borrowedArena;
 		Size restoreStart;
-
-		Scoped(MemoryArena &arena, std::unique_ptr<MemoryArena> borrowedArena) : arena(arena), borrowedArena(std::move(borrowedArena)), restoreStart(arena.start) {}
+		std::lock_guard<std::recursive_mutex> arenaLock;
+		
+		Scoped(MemoryArena &arena, std::unique_ptr<MemoryArena> borrowedArena) : arena(arena), borrowedArena(std::move(borrowedArena)), restoreStart(arena.start), arenaLock(arena.scopeMutex) {}
 	};
 	
 	Scoped scoped() {
@@ -93,6 +95,7 @@ struct MemoryArena {
 	}
 	
 private:
+	std::recursive_mutex scopeMutex;
 	Size start = 0, end = 0;
 	Size cleanStart = 0;
 	Instance *instance = nullptr;
