@@ -10,18 +10,10 @@ namespace wclap {
 template<class ActualImpl>
 class Instance {
 	ActualImpl impl;
-	static int threadSpawnImpl(void *impl, uint64_t startArg) {
-		auto *self = (Instance *)impl;
-		if (!self->threadSpawn) return -1; // not supported
-		return self->threadSpawn(self->threadSpawnContext, startArg);
-	}
 
 public:
 	template<class... Args>
-	Instance(Args &&...args) : impl(this, std::forward<Args>(args)...) {
-		impl.threadSpawnContext = this;
-		impl.threadSpawn = threadSpawnImpl;
-	}
+	Instance(Args &&...args) : impl(this, std::forward<Args>(args)...) {}
 	
 	// Path inside its own virtual filesystem
 	const char * path() const {
@@ -45,15 +37,6 @@ public:
 			entry32 = impl.init32();
 		}
 	}
-
-	// run a thread until stopped - calls through to wasi_thread_start() in the WCLAP
-	void runThread(int threadId, void *startArg) {
-		impl.runThread(threadId, startArg);
-	}
-
-	void *threadSpawnContext = nullptr;
-	// This gets called by the instance when the WCLAP requests to start a thread - assign this if you support threads, returning thread ID [1, 2^29) on success, negative on failure, and then call runThread() from the new thread
-	int (*threadSpawn)(void *threadContext, uint64_t startArg) = nullptr;
 
 	//---- wclap32 ----//
 

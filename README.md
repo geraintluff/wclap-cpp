@@ -24,12 +24,14 @@ These structures can't contain pointers, since those will all be specified relat
 
 ### `Instance` interface
 
-To actually set/get `Pointer<>`s, or call `Function<>`s, you need an `Instance`.  This is an abstract interface defined in `wclap/instance.hpp`.
+To actually set/get `Pointer<>`s, or call `Function<>`s, you need an `Instance`.  This defined in `wclap/instance.hpp`, and _mostly_ forwards directly to an underlying implementation, with the exception of:
+* `instance.init()` -> `impl.init32()` or `impl.init64()` as appropriate
+* `instance.get()`/`.set()` -> forward to `.getArray()`/`.setArray()` with length 1
 
 The idea is to abstract "a WCLAP running in some unknown WASM engine", making it easier to write a host and swap the WASM engine out later.  WASI support is up to the `Instance`, and there may be some implementation-specific config there:
 
 ![wclap-cpp overview diagram](doc/wclap-cpp-outline.png)
 
-All host functions must be registered before calling `Instance::init()`, and will have different `Function<>` values when registered on different `Instance`s.
+Host functions can only be registered before calling `Instance::init()`.  This will produce different `Function<>` values when registered on different `Instance`s, so they must be stored per-instance.
 
-If a WCLAP spawns a new thread, the `Instance` should handle this internally, and then inform you about it by a callback on that new thread.  A thread spawned by one `Instance` will *not* be able to call methods on other `Instance`s.
+If a WCLAP spawns a new thread, the `Instance` should handle this internally, and then inform you about it by a callback on that new thread.  A thread spawned by one `Instance` will not be able to call methods on other `Instance`s.
